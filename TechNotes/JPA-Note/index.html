@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="NICCCCE">
 <meta property="og:description" content="JPAJPA全称Java Persistence API（2019年重新命名为 Jakarta Persistence API ），是Sun官方提出的一种ORM规范。 O:Object R: Relational M:mapping  作用 1.简化持久化操作的开发工作：让开发者从繁琐的 JDBC 和 SQL 代码中解脱出来，直接面向对象持久化操作。 2.Sun希望持久化技术能够统一，实现天下归一">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://nicccce.github.io/TechNotes/JPA-Note/JPA-Note/20160324004308608.png">
+<meta property="og:image" content="https://nicccce.github.io/JPA-Note/20160324004308608.png">
 <meta property="article:published_time" content="2024-05-07T17:59:56.000Z">
-<meta property="article:modified_time" content="2024-05-07T18:14:48.665Z">
+<meta property="article:modified_time" content="2024-05-08T08:14:29.708Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="后端">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://nicccce.github.io/TechNotes/JPA-Note/JPA-Note/20160324004308608.png">
+<meta name="twitter:image" content="https://nicccce.github.io/JPA-Note/20160324004308608.png">
   
     <link rel="alternative" href="/atom.xml" title="NICCCCE" type="application/atom+xml">
   
@@ -298,6 +298,8 @@
 </ul>
 </li>
 </ul>
+<span id="more"></span>
+
 <h3 id="Jpa示例"><a href="#Jpa示例" class="headerlink" title="Jpa示例"></a>Jpa示例</h3><p>以下内容实际没啥用，只是展示jpa的特色罢了，可以跳过</p>
 <p>1、<strong>添加META-INF\persistence.xml</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0” encoding=&quot;</span>UTF-8<span class="string">&quot;?&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;persistence xmlns=&quot;</span>http://java.sun.com/xml/ns/persistence<span class="string">&quot; version=&quot;</span>2.0<span class="string">&quot;&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;!-- 需要配置persistence-unit节点</span></span></span><br><span class="line"><span class="string"><span class="meta">持久化单元:</span></span></span><br><span class="line"><span class="string"><span class="meta">name:持久化单元名称</span></span></span><br><span class="line"><span class="string"><span class="meta">transaction-type:事务管理的方式</span></span></span><br><span class="line"><span class="string"><span class="meta">JTA:分布式事务管理</span></span></span><br><span class="line"><span class="string"><span class="meta">RESOURCE_LOCAL：本地事务管理</span></span></span><br><span class="line"><span class="string"><span class="meta">--&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;persistence‐unit name=&quot;</span>hibernateJPA<span class="string">&quot; transaction‐type=&quot;</span>RESOURCE_LOCAL<span class="string">&quot;&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;class&gt;xxx&lt;/class&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;!--jpa的实现方式 --&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;provider&gt;org.hibernate.jpa.HibernatePersistenceProvider&lt;/provider&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta"></span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;!-- 可选配置：配置jpa实现方的配置信息 --&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;properties&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;!-- 数据库信息</span></span></span><br><span class="line"><span class="string"><span class="meta">用户名，javax.persistence.jdbc.user</span></span></span><br><span class="line"><span class="string"><span class="meta">密码， javax.persistence.jdbc.password</span></span></span><br><span class="line"><span class="string"><span class="meta">驱动， javax.persistence.jdbc.driver</span></span></span><br><span class="line"><span class="string"><span class="meta">数据库地址 javax.persistence.jdbc.url</span></span></span><br><span class="line"><span class="string"><span class="meta">--&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;property name=&quot;</span>javax.persistence.jdbc.user<span class="string">&quot; value=&quot;</span>root<span class="string">&quot;/&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;property name=&quot;</span>javax.persistence.jdbc.password<span class="string">&quot; value=&quot;</span>123456<span class="string">&quot;/&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;property name=&quot;</span>javax.persistence.jdbc.driver<span class="string">&quot; value=&quot;</span>com.mysql.cj.jdbc.Driver<span class="string">&quot;/&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;property name=&quot;</span>javax.persistence.jdbc.url<span class="string">&quot; value=&quot;</span>jdbc:mysql://localhost:3306/springdata_jpa?</span></span><br><span class="line"><span class="meta">serverTimezone=UTC<span class="string">&quot;/&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta"></span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;!-- 配置jpa实现方(hibernate)的配置信息</span></span></span><br><span class="line"><span class="string"><span class="meta">显示sql ： false|true</span></span></span><br><span class="line"><span class="string"><span class="meta">自动创建数据库表 ： hibernate.hbm2ddl.auto</span></span></span><br><span class="line"><span class="string"><span class="meta">create : 程序运行时创建数据库表（如果有表，先删除表再创建）</span></span></span><br><span class="line"><span class="string"><span class="meta">update ：程序运行时创建表（如果有表，不会创建表）</span></span></span><br><span class="line"><span class="string"><span class="meta">none ：不会创建表</span></span></span><br><span class="line"><span class="string"><span class="meta">--&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;property name=&quot;</span>hibernate.show_sql<span class="string">&quot; value=&quot;</span>true<span class="string">&quot; /&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;property name=&quot;</span>hibernate.hbm2ddl.auto<span class="string">&quot; value=&quot;</span>update<span class="string">&quot; /&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;property name=&quot;</span>hibernate.dialect<span class="string">&quot; value=&quot;</span>org.hibernate.dialect.MySQL5InnoDBDialect<span class="string">&quot; /&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta"></span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;/properties&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;/persistence‐unit&gt;</span></span></span><br><span class="line"><span class="string"><span class="meta"></span></span></span><br><span class="line"><span class="string"><span class="meta"></span></span></span><br><span class="line"><span class="string"><span class="meta">&lt;/persistence&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -309,19 +311,12 @@
 
 <p><strong>jpa的对象4种状态</strong></p>
 <ul>
-<li><p>临时状态：刚创建出来，∙没有与entityManager发生关系，没有被持久化，不处于entityManager中的对象</p>
-</li>
-<li><p>持久状态：∙与entityManager发生关系，已经被持久化，您可以把持久化状态当做实实在在的数据库记录。</p>
-</li>
-<li><p>删除状态：执行remove方法，事物提交之前</p>
-</li>
-<li><p>游离状态：游离状态就是提交到数据库后，事务commit后实体的状态，因为事务已经提交了，此时实体的属性任你如何改变，也不会同步到数据库，因为游离是没人管的孩子，不在持久化上下文中。</p>
-</li>
+<li>临时状态：刚创建出来，∙没有与entityManager发生关系，没有被持久化，不处于entityManager中的对象</li>
+<li>持久状态：∙与entityManager发生关系，已经被持久化，您可以把持久化状态当做实实在在的数据库记录。</li>
+<li>删除状态：执行remove方法，事物提交之前</li>
+<li>游离状态：游离状态就是提交到数据库后，事务commit后实体的状态，因为事务已经提交了，此时实体的属性任你如何改变，也不会同步到数据库，因为游离是没人管的孩子，不在持久化上下文中。</li>
 </ul>
-<img src="JPA-Note/20160324004308608.png">
-
-
-
+<p><img src="/JPA-Note/20160324004308608.png" alt="20160324004308608"></p>
 <p><strong>public void persist(Object entity)</strong></p>
 <p>persist方法可以将实例转换为managed(托管)状态。在调用flush()方法或提交事物后，实例将会被插入到数据库中。</p>
 <p>对不同状态下的实例A，persist会产生以下操作:</p>
