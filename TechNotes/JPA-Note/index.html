@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://nicccce.github.io/JPA-Note/20160324004308608.png">
 <meta property="article:published_time" content="2024-05-07T17:59:56.000Z">
-<meta property="article:modified_time" content="2024-05-21T02:24:28.871Z">
+<meta property="article:modified_time" content="2024-05-24T18:45:54.179Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="后端">
 <meta property="article:tag" content="笔记">
@@ -237,7 +237,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">8.7k字</span>
+      <span class="post-count">8.8k字</span>
     </span>
   </span>
 
@@ -840,7 +840,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h4><p>创建Message类</p>
+<h4 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liyiming2017/article/details/90218062">Spring Data JPA OneToMany级联，多方删除修改新增详解</a></p>
+<p>创建Message类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name=&quot;tb_message&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Message</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String info;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Message</span><span class="params">(String info)</span> &#123;<span class="built_in">this</span>.info = info;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Message</span><span class="params">(String info, Customer customer)</span> &#123;<span class="built_in">this</span>.info = info;<span class="built_in">this</span>.customer = customer;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一定要有、否则查询就会有问题</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Message</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 多对一</span></span><br><span class="line">    <span class="keyword">private</span> Customer customer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>在Customer类中设置关联关系：</p>
@@ -862,7 +863,9 @@
 
 
 
-<h4 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h4><p>创建Role类</p>
+<h4 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouzhiwengang/article/details/108505595">Spring-Data-JPA 定义实体类关系:多对多(增删改查)_jpa 多对多 中间实体更新操作</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lin-bunny/p/11647798.html">spring jpa ManyToMany 理解和使用</a></p>
+<p>创建Role类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name=&quot;tb_role&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Role</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name=&quot;role_name&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String rName;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Role</span><span class="params">(String rName)</span> &#123;<span class="built_in">this</span>.rName = rName;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Role</span><span class="params">(Long id, String rName)</span> &#123;<span class="built_in">this</span>.id = id;<span class="built_in">this</span>.rName = rName;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Role</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToMany(cascade = CascadeType.ALL)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Role&gt; roles;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>在Customer中设置关系</p>
