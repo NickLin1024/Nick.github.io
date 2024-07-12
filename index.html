@@ -424,28 +424,9 @@
 
 <p>encode name</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Replace with dictionary</span></span><br><span class="line">encodedName = [letterToDna[item] <span class="keyword">for</span> item <span class="keyword">in</span> <span class="string">&quot;NICK&quot;</span>]</span><br><span class="line">TName=<span class="string">&quot;&quot;</span>.join(encodedName)</span><br><span class="line">TName</span><br><span class="line">//<span class="string">&#x27;GACATATGCAAG&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Base-Paring"><a href="#Base-Paring" class="headerlink" title="Base Paring"></a>Base Paring</h3><p>（碱基配对）</p>
-<p>The four bases in DNA are adenine (A), cytosine (C), guanine (G), and thymine (T). </p>
-<p>These bases form specific pairs </p>
-<ul>
-<li>A with T</li>
-<li>G with C</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reverseComplement</span>(<span class="params">seq</span>):</span><br><span class="line">    dic = &#123;<span class="string">&quot;A&quot;</span>:<span class="string">&quot;T&quot;</span>,<span class="string">&quot;T&quot;</span>:<span class="string">&quot;A&quot;</span>,<span class="string">&quot;C&quot;</span>:<span class="string">&quot;G&quot;</span>,<span class="string">&quot;G&quot;</span>:<span class="string">&quot;C&quot;</span>&#125;</span><br><span class="line">    resq = [dic[item] <span class="keyword">for</span> item <span class="keyword">in</span> seq]</span><br><span class="line">    resq.reverse()</span><br><span class="line">    resq = <span class="string">&quot;&quot;</span>.join(resq)</span><br><span class="line">    <span class="keyword">return</span> resq</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RTName = <span class="string">&quot;&quot;</span>.join(reverseComplement(TName))</span><br><span class="line">RTName</span><br><span class="line">//<span class="string">&#x27;CTTGCATATGTC&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Find-Most-Frequent-5-mers"><a href="#Find-Most-Frequent-5-mers" class="headerlink" title="Find Most Frequent 5-mers"></a>Find Most Frequent 5-mers</h3><p><strong>K-Mer</strong> :  a sequence with length of K e.g. 5-mers</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">findTop5Mers</span>(<span class="params">sequence</span>):</span><br><span class="line">    k = <span class="number">5</span>  <span class="comment"># k-mer length</span></span><br><span class="line">    top_kmers = []</span><br><span class="line">    kmer_counts = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Count occurrences of each k-mer</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(sequence) - k + <span class="number">1</span>):</span><br><span class="line">        kmer = sequence[i:i+k]</span><br><span class="line">        <span class="keyword">if</span> kmer <span class="keyword">in</span> kmer_counts:</span><br><span class="line">            kmer_counts[kmer] += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            kmer_counts[kmer] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Sort the k-mers based on their counts in descending order</span></span><br><span class="line">    sorted_kmers = <span class="built_in">sorted</span>(kmer_counts, key=kmer_counts.get, reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get the top 5 k-mers</span></span><br><span class="line">    top_kmers = sorted_kmers[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> top_kmers</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="DAY-2"><a href="#DAY-2" class="headerlink" title="DAY 2"></a>DAY 2</h2>
+    
+    <a class="article-more-a" href="/CourseNote/Big-Biomedical-Data-Analysis/#more">more >></a>
+    
     
 
     
@@ -558,24 +539,9 @@
 <p>使用续行符之后 MATLAB 会自动将前一行保留而不加以计算,并与下一行衔接,等待完整输入后再计算整个输入的结果</p>
 <p><strong>清屏</strong></p>
 <p>若命令窗口内容过多,希望恢复初始状态,则可以输入 <code>clc</code> 命令,清除当前窗口内容</p>
-<p><strong>历史命令</strong></p>
-<p>历史命令窗口是一个MATLAB重要的用户界面窗口,默认设置下该窗口会保留自安装时起运行过的所有命令的历史记录，并标明使用时间，以方便用户的查询</p>
-<p>这些被记录的命令行都可以被复制，或再运行(只需鼠标左键双击某一行命令,即可在命令窗口中重新执行该命令)</p>
-<p><strong>工作空间管理窗口</strong></p>
-<p>工作区管理窗口是 MATLAB 的重要组成部分。在工作区管理窗口中将显示所有目前保存在内存中的 MATLAB 变量的变量名、数据结构、字节数以及数据类型,而且不同的变量类型分别对应不同的变量名图标，</p>
-<p><strong>工作空间管理</strong></p>
-<p>MATLAB 用于管理工作空间的常用命令主要有3个：</p>
-<p><code>who</code>(或 <code>whos</code>)，<code>clear</code> 和 <code>pack</code></p>
-<ul>
-<li><code>who</code> 或 <code>whos</code> 命令用于查询工作空间中的变量，<ul>
-<li><code>who</code>命令仅返回保存在工作空间中的变量名，</li>
-<li>而 <code>whos</code>命令不仅返回工作空间中的变量名，而且还返回变量的大小、数据类型等信息</li>
-</ul>
-</li>
-<li><code>clear</code> 命令用于清除工作区管理窗口中的内存变量可以清除某个变量( <code>clear 变量名</code>)，也可以清除所有变量( <code>clear all</code>)</li>
-<li><code>pack</code> 命令用于整理工作空间内的数据碎片</li>
-</ul>
-
+    
+    <a class="article-more-a" href="/MathematicalModeling/Matlab-Note/#more">more >></a>
+    
     
 
     
