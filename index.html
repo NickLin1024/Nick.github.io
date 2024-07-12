@@ -386,6 +386,136 @@
 
 
   
+    <article id="post-Big-Biomedical-Data-Analysis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/CourseNote/Big-Biomedical-Data-Analysis/" target="_blank">Big-Biomedical-Data-Analysis</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/CourseNote/Big-Biomedical-Data-Analysis/" class="archive-article-date">
+        <time datetime="2024-07-12T09:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Big-Biomedical-Data-Analysis"><a href="#Big-Biomedical-Data-Analysis" class="headerlink" title="Big Biomedical Data Analysis"></a>Big Biomedical Data Analysis</h1><h2 id="DAY-1"><a href="#DAY-1" class="headerlink" title="DAY 1"></a>DAY 1</h2><h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><p><a target="_blank" rel="noopener" href="https://www.anaconda.com/download">Download Anaconda Distribution | Anaconda</a></p>
+<p>下载安装后，搜索Anaconda Navigator，打开后运行JupyterLab，在里面敲代码就行</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bit_coders/article/details/117702064">JupyterLab快捷键+调试技巧</a></p>
+<h3 id="Translate-Your-Name-Into-DNA-Code"><a href="#Translate-Your-Name-Into-DNA-Code" class="headerlink" title="Translate Your Name Into DNA Code"></a>Translate Your Name Into DNA Code</h3><p><img src="/Big-Biomedical-Data-Analysis/image-20240712171300874.png" alt="image-20240712171300874"></p>
+<p>The corresponding dictionary:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">letterToDna = &#123;</span><br><span class="line">    <span class="string">&#x27;A&#x27;</span>: <span class="string">&#x27;GCT&#x27;</span>, <span class="string">&#x27;B&#x27;</span>: <span class="string">&#x27;GCA&#x27;</span>, <span class="string">&#x27;C&#x27;</span>: <span class="string">&#x27;TGC&#x27;</span>, <span class="string">&#x27;D&#x27;</span>: <span class="string">&#x27;GAT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;E&#x27;</span>: <span class="string">&#x27;GAG&#x27;</span>, <span class="string">&#x27;F&#x27;</span>: <span class="string">&#x27;TTT&#x27;</span>, <span class="string">&#x27;G&#x27;</span>: <span class="string">&#x27;GGG&#x27;</span>, <span class="string">&#x27;H&#x27;</span>: <span class="string">&#x27;CAT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;I&#x27;</span>: <span class="string">&#x27;ATA&#x27;</span>, <span class="string">&#x27;J&#x27;</span>: <span class="string">&#x27;ATC&#x27;</span>, <span class="string">&#x27;K&#x27;</span>: <span class="string">&#x27;AAG&#x27;</span>, <span class="string">&#x27;L&#x27;</span>: <span class="string">&#x27;CTC&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;M&#x27;</span>: <span class="string">&#x27;ATG&#x27;</span>, <span class="string">&#x27;N&#x27;</span>: <span class="string">&#x27;GAC&#x27;</span>, <span class="string">&#x27;O&#x27;</span>: <span class="string">&#x27;GAT&#x27;</span>, <span class="string">&#x27;P&#x27;</span>: <span class="string">&#x27;CCC&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Q&#x27;</span>: <span class="string">&#x27;GAG&#x27;</span>, <span class="string">&#x27;R&#x27;</span>: <span class="string">&#x27;CGT&#x27;</span>, <span class="string">&#x27;S&#x27;</span>: <span class="string">&#x27;TCA&#x27;</span>, <span class="string">&#x27;T&#x27;</span>: <span class="string">&#x27;ACT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;U&#x27;</span>: <span class="string">&#x27;ACG&#x27;</span>, <span class="string">&#x27;V&#x27;</span>: <span class="string">&#x27;GTC&#x27;</span>, <span class="string">&#x27;W&#x27;</span>: <span class="string">&#x27;TGG&#x27;</span>, <span class="string">&#x27;X&#x27;</span>: <span class="string">&#x27;GTA&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Y&#x27;</span>: <span class="string">&#x27;TAC&#x27;</span>, <span class="string">&#x27;Z&#x27;</span>: <span class="string">&#x27;TAT&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>encode name</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Replace with dictionary</span></span><br><span class="line">encodedName = [letterToDna[item] <span class="keyword">for</span> item <span class="keyword">in</span> <span class="string">&quot;NICK&quot;</span>]</span><br><span class="line">TName=<span class="string">&quot;&quot;</span>.join(encodedName)</span><br><span class="line">TName</span><br><span class="line">//<span class="string">&#x27;GACATATGCAAG&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Base-Paring"><a href="#Base-Paring" class="headerlink" title="Base Paring"></a>Base Paring</h3><p>（碱基配对）</p>
+<p>The four bases in DNA are adenine (A), cytosine (C), guanine (G), and thymine (T). </p>
+<p>These bases form specific pairs </p>
+<ul>
+<li>A with T</li>
+<li>G with C</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reverseComplement</span>(<span class="params">seq</span>):</span><br><span class="line">    dic = &#123;<span class="string">&quot;A&quot;</span>:<span class="string">&quot;T&quot;</span>,<span class="string">&quot;T&quot;</span>:<span class="string">&quot;A&quot;</span>,<span class="string">&quot;C&quot;</span>:<span class="string">&quot;G&quot;</span>,<span class="string">&quot;G&quot;</span>:<span class="string">&quot;C&quot;</span>&#125;</span><br><span class="line">    resq = [dic[item] <span class="keyword">for</span> item <span class="keyword">in</span> seq]</span><br><span class="line">    resq.reverse()</span><br><span class="line">    resq = <span class="string">&quot;&quot;</span>.join(resq)</span><br><span class="line">    <span class="keyword">return</span> resq</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RTName = <span class="string">&quot;&quot;</span>.join(reverseComplement(TName))</span><br><span class="line">RTName</span><br><span class="line">//<span class="string">&#x27;CTTGCATATGTC&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Find-Most-Frequent-5-mers"><a href="#Find-Most-Frequent-5-mers" class="headerlink" title="Find Most Frequent 5-mers"></a>Find Most Frequent 5-mers</h3><p><strong>K-Mer</strong> :  a sequence with length of K e.g. 5-mers</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">findTop5Mers</span>(<span class="params">sequence</span>):</span><br><span class="line">    k = <span class="number">5</span>  <span class="comment"># k-mer length</span></span><br><span class="line">    top_kmers = []</span><br><span class="line">    kmer_counts = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Count occurrences of each k-mer</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(sequence) - k + <span class="number">1</span>):</span><br><span class="line">        kmer = sequence[i:i+k]</span><br><span class="line">        <span class="keyword">if</span> kmer <span class="keyword">in</span> kmer_counts:</span><br><span class="line">            kmer_counts[kmer] += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            kmer_counts[kmer] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Sort the k-mers based on their counts in descending order</span></span><br><span class="line">    sorted_kmers = <span class="built_in">sorted</span>(kmer_counts, key=kmer_counts.get, reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get the top 5 k-mers</span></span><br><span class="line">    top_kmers = sorted_kmers[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> top_kmers</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DAY-2"><a href="#DAY-2" class="headerlink" title="DAY 2"></a>DAY 2</h2>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CourseNote//" class="article-tag-list-link color1">CourseNote</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/CourseNote/Big-Biomedical-Data-Analysis/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Matlab-Note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -3628,6 +3758,10 @@ void main(void)&#123;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
             
             <div class="clearfix"></div>
