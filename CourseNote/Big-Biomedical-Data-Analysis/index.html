@@ -18,8 +18,11 @@
 <meta property="og:description" content="Big Biomedical Data AnalysisDAY 1EnvironmentDownload Anaconda Distribution | Anaconda 下载安装后，搜索Anaconda Navigator，打开后运行JupyterLab，在里面敲代码就行 JupyterLab快捷键+调试技巧 Translate Your Name Into DNA Code The corre">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240712171300874.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240712193525689.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/1-s2.0-S1046202320300591-gr1.jpg">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/m_gkt1288f1p.gif">
 <meta property="article:published_time" content="2024-07-12T09:07:26.000Z">
-<meta property="article:modified_time" content="2024-07-12T11:19:03.038Z">
+<meta property="article:modified_time" content="2024-07-12T13:31:38.229Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
@@ -236,7 +239,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">408字</span>
+      <span class="post-count">872字</span>
     </span>
   </span>
 
@@ -245,7 +248,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -290,7 +293,64 @@
 
 
 
-<h2 id="DAY-2"><a href="#DAY-2" class="headerlink" title="DAY 2"></a>DAY 2</h2>
+<h2 id="DAY-2"><a href="#DAY-2" class="headerlink" title="DAY 2"></a>DAY 2</h2><h3 id="DNA-data-analysis"><a href="#DNA-data-analysis" class="headerlink" title="DNA data analysis"></a>DNA data analysis</h3><p><strong>1)Download a DNA sequence</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://useast.ensembl.org/index.html">Ensembl</a></li>
+<li>NCBI</li>
+<li>UCSC genome browser</li>
+</ul>
+<p><strong>2)Sequence alignment</strong></p>
+<p>Sequence 1: ATCGTACG<br>Sequence 2: ATCGAAG</p>
+<p>To align these sequences, we might introduce gaps (“-“) to indicate insertions or deletions:</p>
+<p>Sequence 1: A–TCGTACG<br>Sequence 2: ATCG–AAG</p>
+<p><strong>Edit distance</strong>:</p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240712193525689.png" alt="image-20240712193525689"></p>
+<blockquote>
+<p><strong>Why we want to align sequences?</strong></p>
+<p>Essentially, sequence alignment is used to find the distance between “sequences”</p>
+<p>A lot of applications:</p>
+<ol>
+<li>Assembly the genome</li>
+<li>Quantify gene expression</li>
+<li>Study the conservation between species</li>
+<li>Understand the evolution</li>
+</ol>
+</blockquote>
+<p><strong>3)Find a DNA motif</strong></p>
+<p>DNA motif（DNA模体），也被称为DNA序列模式或DNA序列基元，在基因组中是指一种特定的短序列。DNA模体在基因组中以重复的形式存在，并且在不同的基因或物种中可能具有保守性。</p>
+<p>transcription factor (TF) :转录因子</p>
+<blockquote>
+<p><strong>TF binding pattern-motif</strong></p>
+<p>Example: TATA BOX &lt;-&gt; TBP</p>
+<p>TATABOX: TATAWAWA (W:[A&#x2F;T])</p>
+</blockquote>
+<p><strong>How to identify DNA motifs?</strong></p>
+<p>Enrichment analysis</p>
+<p>富集分析（Enrichment analysis）是一种用于识别基因组中具有显著富集的功能或关联的方法。</p>
+<p>An example:</p>
+<ol>
+<li>JUND: Transcription factor involved in cell growth, immune response, and tumor growth.</li>
+<li>JUNB: Transcription factor regulating cell cycle, immune response, and tumor development.</li>
+<li>FOS: Transcription factor family involved in cell processes, stress response, and tumor formation.</li>
+<li>IRF1: Interferon regulatory factor playing a role in immune response and gene expression regulation.</li>
+<li>IRF2: Interferon regulatory factor involved in development and gene transcription control.</li>
+<li>ATF2: Transcription factor important for stress response, DNA repair, and cell regulation.</li>
+</ol>
+<p><strong>CHIP-Seq（Chromatin Immunoprecipitation Sequencing）</strong></p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/1-s2.0-S1046202320300591-gr1.jpg" alt="img"></p>
+<p>先使用抗体特异性地富集某个特定的蛋白质与染色质结合的DNA片段。这个蛋白质可以是转录因子、组蛋白修饰酶或其他与染色质相互作用的蛋白质。通过与特定抗体结合，这些蛋白质与其结合的染色质区域可以被选择性地富集。</p>
+<p>然后将富集的DNA片段经过适当的处理和准备后进行高通量测序。通过测序，可以得到与染色质结合的DNA片段的序列信息。</p>
+<blockquote>
+<p> <strong>Map the reads to the reference genome</strong></p>
+<p>tool：<a target="_blank" rel="noopener" href="https://bowtie-bio.sourceforge.net/bowtie2/index.shtml">Bowtie 2: fast and sensitive read alignment (sourceforge.net)</a></p>
+</blockquote>
+<blockquote>
+<p><strong>Peak calling method</strong></p>
+<p>tool：<a target="_blank" rel="noopener" href="https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html">MACS2</a></p>
+</blockquote>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/m_gkt1288f1p.gif" alt="The procedure in SIOMICS."></p>
+<p><strong>4)Identify a DNA mutation</strong></p>
+
     
 
     
@@ -450,7 +510,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA-data-analysis"><span class="toc-number">1.2.1.</span> <span class="toc-text">DNA data analysis</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
