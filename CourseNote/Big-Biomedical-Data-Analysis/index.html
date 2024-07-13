@@ -21,8 +21,15 @@
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240712193525689.png">
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/1-s2.0-S1046202320300591-gr1.jpg">
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/m_gkt1288f1p.gif">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240713004754992.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240713124857863.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240713152541277.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240713152547835.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240713153034440.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/Ska%CC%88rmavbild-2017-09-03-kl.-15.28.56-e1504456128643.png">
+<meta property="og:image" content="https://nicccce.github.io/_19092.png">
 <meta property="article:published_time" content="2024-07-12T09:07:26.000Z">
-<meta property="article:modified_time" content="2024-07-12T13:31:38.229Z">
+<meta property="article:modified_time" content="2024-07-13T11:19:13.742Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
@@ -239,7 +246,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">872字</span>
+      <span class="post-count">2k字</span>
     </span>
   </span>
 
@@ -248,7 +255,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -341,15 +348,111 @@
 <p>先使用抗体特异性地富集某个特定的蛋白质与染色质结合的DNA片段。这个蛋白质可以是转录因子、组蛋白修饰酶或其他与染色质相互作用的蛋白质。通过与特定抗体结合，这些蛋白质与其结合的染色质区域可以被选择性地富集。</p>
 <p>然后将富集的DNA片段经过适当的处理和准备后进行高通量测序。通过测序，可以得到与染色质结合的DNA片段的序列信息。</p>
 <blockquote>
+<p><strong>Download reads</strong><br>(fastq)SRA Toolkit</p>
+</blockquote>
+<blockquote>
 <p> <strong>Map the reads to the reference genome</strong></p>
-<p>tool：<a target="_blank" rel="noopener" href="https://bowtie-bio.sourceforge.net/bowtie2/index.shtml">Bowtie 2: fast and sensitive read alignment (sourceforge.net)</a></p>
+<p> tool：<a target="_blank" rel="noopener" href="https://bowtie-bio.sourceforge.net/bowtie2/index.shtml">Bowtie 2: fast and sensitive read alignment (sourceforge.net)</a></p>
+</blockquote>
+<blockquote>
+<p><strong>Process mapped reads</strong></p>
+<p> (e.g., sort bam)</p>
 </blockquote>
 <blockquote>
 <p><strong>Peak calling method</strong></p>
 <p>tool：<a target="_blank" rel="noopener" href="https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html">MACS2</a></p>
 </blockquote>
 <p><img src="/CourseNote/Big-Biomedical-Data-Analysis/m_gkt1288f1p.gif" alt="The procedure in SIOMICS."></p>
+<blockquote>
+<p><strong>Identify enriched motifs</strong>(TFs)</p>
+</blockquote>
 <p><strong>4)Identify a DNA mutation</strong></p>
+<h2 id="DAY3"><a href="#DAY3" class="headerlink" title="DAY3"></a>DAY3</h2><h3 id="RNA-seq-data-analysis"><a href="#RNA-seq-data-analysis" class="headerlink" title="RNA-seq data analysis"></a>RNA-seq data analysis</h3><p>RNA与DNA区别：RNA只包含“excellent部分”，DNA包含内含子</p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240713004754992.png" alt="image-20240713004754992"></p>
+<p><strong>Quantify gene expression</strong></p>
+<p>即将RNA样本对应到基因上，通过匹配量的比例量化基因的表达量</p>
+<p>（例如一组六个RNA，有4个映射到了A，两个映射到B；另一组十个是3:7，那么第一组B的表达量认为高于第二组）。</p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240713124857863.png" alt="image-20240713124857863"></p>
+<h3 id="Linear-regression"><a href="#Linear-regression" class="headerlink" title="Linear regression"></a>Linear regression</h3><p>建立自变量（特征）与因变量之间线性关系</p>
+<p>$\hat{y} &#x3D; \beta_0 x_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_n x_n$</p>
+<p>How to search the parameters?</p>
+<p>1）Brute-force</p>
+<p>2）Gradient descent</p>
+<p>残差平方和：</p>
+<p>$ E &#x3D; \sum_{i&#x3D;1}^{m} (y_i - \hat{y}_i)^2$</p>
+<p>目标——最小化E</p>
+<ul>
+<li><strong>Logistic regression</strong></li>
+</ul>
+<p>将线性回归模型与sigmoid函数结合，以将线性输出映射到概率值。sigmoid函数将输入值压缩到0和1之间，表示样本属于某个类别的概率。</p>
+<p>$P(y&#x3D;1|x) &#x3D; \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_n x_n)}}$</p>
+<ul>
+<li><strong>Support-vector machine (SVM)</strong></li>
+</ul>
+<p>一种用于分类和回归的机器学习算法</p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240713152541277.png" alt="image-20240713152541277"></p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240713152547835.png" alt="image-20240713152547835"></p>
+<p>原理：</p>
+<ol>
+<li>数据准备：收集带有标签的训练数据，其中每个样本都有对应的特征向量和类别标签。</li>
+<li>特征缩放：根据需要对特征进行缩放，以确保它们具有相似的尺度。</li>
+<li>定义超平面：SVM 的目标是找到一个最优的超平面，使得两个不同类别的样本被最大化的间隔分开。间隔是指超平面与离它最近的支持向量之间的距离。</li>
+<li>核函数（Kernel Function）：如果样本在原始特征空间中无法线性分隔，可以使用核函数将样本映射到高维特征空间，使其线性可分。</li>
+<li>训练模型：通过求解优化问题，找到将样本正确分隔的最优超平面。优化问题的目标是最大化间隔，并且可以使用凸优化方法（例如二次规划）来解决。</li>
+<li>模型评估：使用测试数据评估模型的性能，常见的评估指标包括准确率、精确率、召回率和 F1 分数等。</li>
+<li>模型预测：使用训练好的模型对新样本进行分类预测。</li>
+</ol>
+<ul>
+<li><strong>Linear&#x2F;non-linear classifier</strong></li>
+</ul>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240713153034440.png" alt="image-20240713153034440"></p>
+<p>通过Kernel Function使数据线性可分</p>
+<ul>
+<li><strong>Decision Tree</strong></li>
+</ul>
+<p>另一种分类方法</p>
+<p>用树来表示决策规则，并根据特征的值进行逐步的条件分割</p>
+<ul>
+<li><strong>Random forest</strong></li>
+</ul>
+<p>根据多个Decision Tree，评判出最合适的Class （不容易过拟合）</p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/Ska%CC%88rmavbild-2017-09-03-kl.-15.28.56-e1504456128643.png" alt="random forest models, random forest classification, ml, dl, machine learning system"></p>
+<ul>
+<li><strong>over-fitting</strong></li>
+</ul>
+<p><img src="/_19092.png" alt="img"></p>
+<ul>
+<li><strong>Regularization</strong></li>
+</ul>
+<p>通过在损失函数中添加正则化项来约束模型参数的大小，防止过拟合</p>
+<p>L1-regularization </p>
+<p>$Regularization Term&#x3D; λ * ||w||$</p>
+<p>L2-regularization </p>
+<p>$Regularization Term&#x3D; λ * ||w||^2$</p>
+<p><strong>An example data</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database?resource=download">Pima Indians Diabetes Database (kaggle.com)</a></p>
+<p>Request : Build a machine learning model to accurately predict whether or not the patients in the dataset have diabetes or not</p>
+<blockquote>
+<p>steps:</p>
+<ol>
+<li>read and process the raw dataset &#x3D;&gt; extract X and Y</li>
+<li>train a classifier model using scikit-learn</li>
+<li>make prediction and calculate accuracy</li>
+<li>take a screenshot and report your accuracy</li>
+<li>(optional), try to incorperate techniques for anti over-fitting</li>
+<li>(optional), if you implemented multiple methods, build a meta-learner (ensemble approach)</li>
+</ol>
+</blockquote>
+<p>在JupyterLab创个目录，把下载下来的数据和代码都放到那个目录下面</p>
+<p>直接在代码中运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!pip3 install scikit-learn</span><br><span class="line">!pip install matplotlib</span><br></pre></td></tr></table></figure>
+
+<p>下载这个scikit-learn库，然后可以使用<code>class sklearn.ensemble.RamForestClassifier</code>来对数据进行分析，搭建预测模型</p>
+<p>这个类的doc：<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier — scikit-learn 1.5.1 documentation</a></p>
+<p>（也可以用这个包里的其他类，毕竟拟合的方法不止一种，但是我不会。。。）</p>
+<p>后面那个matplotlib库是用来画图用的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb, sys, os</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.inspection <span class="keyword">import</span> permutation_importance</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开数据文件</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;diabetes.csv&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">lf = f.readlines()</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析数据文件</span></span><br><span class="line">lf = [item.strip().split(<span class="string">&quot;,&quot;</span>) <span class="keyword">for</span> item <span class="keyword">in</span> lf]</span><br><span class="line">FNames = lf[<span class="number">0</span>][<span class="number">0</span>:-<span class="number">1</span>]  <span class="comment"># 特征名称列表</span></span><br><span class="line">X = [item[<span class="number">0</span>:-<span class="number">1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> lf[<span class="number">1</span>:]]  <span class="comment"># 输入特征列表</span></span><br><span class="line">Y = [item[-<span class="number">1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> lf[<span class="number">1</span>:]]  <span class="comment"># 输出标签列表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换数据类型为浮点数</span></span><br><span class="line">X = [[<span class="built_in">float</span>(k) <span class="keyword">for</span> k <span class="keyword">in</span> item] <span class="keyword">for</span> item <span class="keyword">in</span> X]</span><br><span class="line">Y = [<span class="built_in">float</span>(item) <span class="keyword">for</span> item <span class="keyword">in</span> Y]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建随机森林分类器</span></span><br><span class="line">rf_jd = RandomForestClassifier(max_depth=<span class="number">2</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在训练数据上拟合随机森林模型</span></span><br><span class="line">rf_jd.fit(X, Y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用拟合的模型对训练数据进行预测</span></span><br><span class="line">Ypre = rf_jd.predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算预测正确的样本数</span></span><br><span class="line">correct_predictions = <span class="built_in">list</span>(Ypre == Y).count(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印模型在训练数据上的准确率</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy:&quot;</span>, rf_jd.score(X, Y))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算特征重要性</span></span><br><span class="line">FS = rf_jd.feature_importances_</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制特征重要性条形图</span></span><br><span class="line">plt.bar(FNames, FS)</span><br><span class="line">plt.xticks(rotation=<span class="number">90</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -510,7 +613,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA-data-analysis"><span class="toc-number">1.2.1.</span> <span class="toc-text">DNA data analysis</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA-data-analysis"><span class="toc-number">1.2.1.</span> <span class="toc-text">DNA data analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY3"><span class="toc-number">1.3.</span> <span class="toc-text">DAY3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RNA-seq-data-analysis"><span class="toc-number">1.3.1.</span> <span class="toc-text">RNA-seq data analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-regression"><span class="toc-number">1.3.2.</span> <span class="toc-text">Linear regression</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
