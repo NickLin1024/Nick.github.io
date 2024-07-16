@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://nicccce.github.io">
-  <title>Big-Biomedical-Data-Analysis | NICCCCE</title>
+  <title>Big Biomedical Data Analysis | NICCCCE</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="Big Biomedical Data AnalysisDAY 1EnvironmentDownload Anaconda Distribution | Anaconda 下载安装后，搜索Anaconda Navigator，打开后运行JupyterLab，在里面敲代码就行 JupyterLab快捷键+调试技巧 Translate Your Name Into DNA Code The corre">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Big-Biomedical-Data-Analysis">
+<meta property="og:title" content="Big Biomedical Data Analysis">
 <meta property="og:url" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/">
 <meta property="og:site_name" content="NICCCCE">
 <meta property="og:description" content="Big Biomedical Data AnalysisDAY 1EnvironmentDownload Anaconda Distribution | Anaconda 下载安装后，搜索Anaconda Navigator，打开后运行JupyterLab，在里面敲代码就行 JupyterLab快捷键+调试技巧 Translate Your Name Into DNA Code The corre">
@@ -28,8 +28,9 @@
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240713153034440.png">
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/Ska%CC%88rmavbild-2017-09-03-kl.-15.28.56-e1504456128643.png">
 <meta property="og:image" content="https://nicccce.github.io/_19092.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240716194327048.png">
 <meta property="article:published_time" content="2024-07-12T09:07:26.000Z">
-<meta property="article:modified_time" content="2024-07-13T11:37:18.999Z">
+<meta property="article:modified_time" content="2024-07-16T12:45:02.199Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
@@ -220,7 +221,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      Big-Biomedical-Data-Analysis
+      Big Biomedical Data Analysis
     </h1>
   
 
@@ -246,7 +247,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.1k字</span>
+      <span class="post-count">3.1k字</span>
     </span>
   </span>
 
@@ -255,7 +256,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">9分</span>
+      <span class="post-count">14分</span>
     </span>
   </span>
 </div>
@@ -367,7 +368,7 @@
 <p><strong>Identify enriched motifs</strong>(TFs)</p>
 </blockquote>
 <p><strong>4)Identify a DNA mutation</strong></p>
-<h2 id="DAY3"><a href="#DAY3" class="headerlink" title="DAY3"></a>DAY3</h2><h3 id="RNA-seq-data-analysis"><a href="#RNA-seq-data-analysis" class="headerlink" title="RNA-seq data analysis"></a>RNA-seq data analysis</h3><p>RNA与DNA区别：RNA只包含“excellent部分”，DNA包含内含子</p>
+<h2 id="DAY-3"><a href="#DAY-3" class="headerlink" title="DAY 3"></a>DAY 3</h2><h3 id="RNA-seq-data-analysis"><a href="#RNA-seq-data-analysis" class="headerlink" title="RNA-seq data analysis"></a>RNA-seq data analysis</h3><p>RNA与DNA区别：RNA只包含“excellent部分”，DNA包含内含子</p>
 <p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240713004754992.png" alt="image-20240713004754992"></p>
 <p><strong>Quantify gene expression</strong></p>
 <p>即将RNA样本对应到基因上，通过匹配量的比例量化基因的表达量</p>
@@ -448,11 +449,66 @@
 
 <p>下载这个scikit-learn库，然后可以使用<code>class sklearn.ensemble.RamForestClassifier</code>来对数据进行分析，搭建预测模型</p>
 <p>这个类的doc：<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier — scikit-learn 1.5.1 documentation</a></p>
-<p>（也可以用这个包里的其他类，毕竟拟合的方法不止一种，但是我不会。。。）</p>
+<p>（也可以用这个包里的其他类，参照<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/api/index.html">API Reference — scikit-learn 1.5.1 documentation</a>，毕竟拟合的方法不止一种，但是我不会。。。）</p>
 <p>后面那个matplotlib库是用来画图用的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb, sys, os</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.inspection <span class="keyword">import</span> permutation_importance</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开数据文件</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;diabetes.csv&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">lf = f.readlines()</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析数据文件</span></span><br><span class="line">lf = [item.strip().split(<span class="string">&quot;,&quot;</span>) <span class="keyword">for</span> item <span class="keyword">in</span> lf]</span><br><span class="line">FNames = lf[<span class="number">0</span>][<span class="number">0</span>:-<span class="number">1</span>]  <span class="comment"># 特征名称列表</span></span><br><span class="line">X = [item[<span class="number">0</span>:-<span class="number">1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> lf[<span class="number">1</span>:]]  <span class="comment"># 获取特征列表</span></span><br><span class="line">Y = [item[-<span class="number">1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> lf[<span class="number">1</span>:]]  <span class="comment"># 获取是否患有糖尿病列表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换数据类型为浮点数</span></span><br><span class="line">X = [[<span class="built_in">float</span>(k) <span class="keyword">for</span> k <span class="keyword">in</span> item] <span class="keyword">for</span> item <span class="keyword">in</span> X]</span><br><span class="line">Y = [<span class="built_in">float</span>(item) <span class="keyword">for</span> item <span class="keyword">in</span> Y]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建随机森林分类器</span></span><br><span class="line">rf_jd = RandomForestClassifier(max_depth=<span class="number">2</span>, random_state=<span class="number">0</span>)</span><br><span class="line"><span class="comment">#max_depth：决策树的最大深度。控制每棵决策树的最大深度限制，即限制树的分支层数。设置较小的深度可以限制模型的复杂度，有助于防止过拟合。可以试着改改看效果</span></span><br><span class="line"><span class="comment">#random_state：随机数生成器的种子值（说是随机，其实是伪随机）。用于控制随机森林中的随机性源，这样可以保证每次运行代码时能获得相同效果</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在训练数据上拟合随机森林模型</span></span><br><span class="line">rf_jd.fit(X, Y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用拟合的模型对训练数据进行预测</span></span><br><span class="line">Ypre = rf_jd.predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算预测正确的样本数</span></span><br><span class="line">correct_predictions = <span class="built_in">list</span>(Ypre == Y).count(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印模型在训练数据上的准确率</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy:&quot;</span>, rf_jd.score(X, Y))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算特征重要性</span></span><br><span class="line">FS = rf_jd.feature_importances_</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制特征重要性条形图</span></span><br><span class="line">plt.bar(FNames, FS)</span><br><span class="line">plt.xticks(rotation=<span class="number">90</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="Homework-1"><a href="#Homework-1" class="headerlink" title="Homework 1"></a>Homework 1</h2><blockquote>
+<p><strong>description:</strong> </p>
+<p>you need to build a classifier (e.g., random forest or svm) for the prediction of TB on HIV patients.<br>steps : </p>
+<ol>
+<li><p>download the dataset from the NIH GEO database<br><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE162164&format=file">https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE162164&amp;format=file</a></p>
+</li>
+<li><p>annotate the patients with its phenotype<br>in other words, some patients are HIV only, the rest are HIV + TB</p>
+</li>
+<li><p>do some basic file reading and processing (convert float values) </p>
+</li>
+<li><p>train a model, could be tricky, the performance could be very bad</p>
+</li>
+<li><p>you need some tricks to minimize the number of features (some feature selection to reduce the feature space) ,   for example, if you find a gene that is not very different from HIV vs HIV+TB, then you know this feature won’t be important </p>
+</li>
+<li><p>you train the model and calculate the accuracy, report it</p>
+</li>
+<li><p>write a report (jupyter notebook, detailing each of the steps and results)<br>you need also to tell me what is the biomarker (the most critical feature for the TB+HIV disease)</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="DAY-4"><a href="#DAY-4" class="headerlink" title="DAY 4"></a>DAY 4</h2><h3 id="Visualize-the-data"><a href="#Visualize-the-data" class="headerlink" title="Visualize the data"></a>Visualize the data</h3><h4 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h4><p>Essentially, it’s linear transformation</p>
+<p>可以理解为投影，用于将高维数据转换为低维表示，同时保留数据集的最大方差。</p>
+<p>（降低维度但是尽可能不损失特征）</p>
+<p>PCA通过线性变换将原始特征映射到新的正交特征空间，新特征称为主成分。</p>
+<h4 id="t-SNE-and-UMAP"><a href="#t-SNE-and-UMAP" class="headerlink" title="t-SNE (and UMAP)"></a><strong>t-SNE (and UMAP)</strong></h4><p>也是降维技术，用于可视化高维数据。</p>
+<p>但是是非线性的</p>
+<h3 id="Clustering-methods"><a href="#Clustering-methods" class="headerlink" title="Clustering methods"></a>Clustering methods</h3><h4 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a><strong>K-Means</strong></h4><p>聚类算法，用于将数据集划分为K个不同的簇（clusters）。每个簇由其内部的数据点组成，这些数据点在特征空间中彼此相似。K-Means算法的目标是最小化数据点与其所属簇中心的平方距离之和。</p>
+<h4 id="Hierarchical-clustering"><a href="#Hierarchical-clustering" class="headerlink" title="Hierarchical clustering"></a><strong>Hierarchical clustering</strong></h4><p>聚类算法，它通过逐步合并或分割数据点来构建聚类层次结构。</p>
+<p>自顶向下的方法，开始时所有数据点都在一个簇中，然后通过递归，将簇分成更小的子簇来构建聚类层次。</p>
+<h4 id="Density-estimator"><a href="#Density-estimator" class="headerlink" title="Density estimator"></a><strong>Density estimator</strong></h4><p>密度估计，根据数据密度估计不同位置数据出现的概率，可以理解为根据数据的密度拟合一个函数</p>
+<h4 id="Leiden-clustering-Louvian-clustering"><a href="#Leiden-clustering-Louvian-clustering" class="headerlink" title="Leiden clustering (Louvian clustering)"></a><strong>Leiden clustering (Louvian clustering)</strong></h4><p>Modularity is a measure of the structure of networks graphs which measures the strength of division of a network into modules (also called groups, clusters or communities).</p>
+<p>用于在一个网络中实现聚类</p>
+<h4 id="Clustering-evaluation-metrics"><a href="#Clustering-evaluation-metrics" class="headerlink" title="Clustering evaluation metrics"></a><strong>Clustering evaluation metrics</strong></h4><p>Silhouette Score $&#x3D; (b-a)&#x2F;max(a,b)$</p>
+<p>1表示样本与其自身的簇非常相似，0表示样本位于两个簇的边界上，-1表示样本更适合与其他簇</p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240716194327048.png" alt="image-20240716194327048"></p>
+<h4 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h4><p>Also this data:</p>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database?resource=download">Pima Indians Diabetes Database (kaggle.com)</a></p>
+<ul>
+<li><p>导包和数据初级处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb, sys, os</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.manifold <span class="keyword">import</span> TSNE</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开数据文件</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;diabetes.csv&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">lf = f.readlines()</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># 解析数据文件</span></span><br><span class="line">lf = [item.strip().split(<span class="string">&quot;,&quot;</span>) <span class="keyword">for</span> item <span class="keyword">in</span> lf]</span><br><span class="line">FNames = lf[<span class="number">0</span>][<span class="number">0</span>:-<span class="number">1</span>]  <span class="comment"># 特征名称列表</span></span><br><span class="line">featureSet = [item[<span class="number">0</span>:-<span class="number">1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> lf[<span class="number">1</span>:]]  <span class="comment"># 输入特征列表</span></span><br><span class="line">outcomeSet = [<span class="built_in">int</span>(item[-<span class="number">1</span>]) <span class="keyword">for</span> item <span class="keyword">in</span> lf[<span class="number">1</span>:]]  <span class="comment"># 输出标签列表</span></span><br><span class="line"><span class="comment">#数据类型转换</span></span><br><span class="line">featureSet=np.array(featureSet,dtype=<span class="built_in">float</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用PCA降为二维</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pca = PCA(n_components=<span class="number">2</span>)  <span class="comment"># 指定要降到的维度，这里选择2维.方便绘图</span></span><br><span class="line">reduced_data = pca.fit_transform(featureSet)</span><br><span class="line"></span><br><span class="line">xr_x=[item[<span class="number">0</span>] <span class="keyword">for</span> item <span class="keyword">in</span> reduced_data]</span><br><span class="line">xr_y=[item[<span class="number">1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> reduced_data]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义自定义颜色映射</span></span><br><span class="line">colors = [<span class="string">&#x27;purple&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>]  <span class="comment"># 1对应紫色，0对应黄色</span></span><br><span class="line">cmap = ListedColormap(colors)</span><br><span class="line">plt.scatter(xr_x, xr_y, c=outcomeSet, cmap=cmap)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用t-SNE降维</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建 t-SNE 模型并将降维后的数据拟合到模型中</span></span><br><span class="line">tsne = TSNE(n_components=<span class="number">2</span>)</span><br><span class="line">tsne_data = tsne.fit_transform(featureSet)</span><br><span class="line"></span><br><span class="line">tsne_x=[item[<span class="number">0</span>] <span class="keyword">for</span> item <span class="keyword">in</span> tsne_data]</span><br><span class="line">tsne_y=[item[<span class="number">1</span>] <span class="keyword">for</span> item <span class="keyword">in</span> tsne_data]</span><br><span class="line"></span><br><span class="line">plt.scatter(tsne_x, tsne_y, c=outcomeSet, cmap=cmap)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>K-means Clustering</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 K-means 模型并指定聚类簇数为2</span></span><br><span class="line">kmeans = KMeans(n_clusters=<span class="number">2</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将数据拟合到 K-means 模型中并进行聚类</span></span><br><span class="line">labels = kmeans.fit_predict(featureSet)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取聚类标签</span></span><br><span class="line">cpred = kmeans.labels_</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可视化聚类成果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#PCA</span></span><br><span class="line">plt.scatter(xr_x, xr_y, c=cpred, cmap=cmap)</span><br><span class="line"></span><br><span class="line"><span class="comment">#t-SNE</span></span><br><span class="line">plt.scatter(tsne_x, tsne_y, c=cpred, cmap=cmap)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Graphical-models"><a href="#Graphical-models" class="headerlink" title="Graphical models"></a>Graphical models</h3>
     
 
     
@@ -466,7 +522,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/" title="Big-Biomedical-Data-Analysis" target="_blank">https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/</a>
+          <a href="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/" title="Big Biomedical Data Analysis" target="_blank">https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/</a>
         </li>
         
         <li>
@@ -612,7 +668,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA-data-analysis"><span class="toc-number">1.2.1.</span> <span class="toc-text">DNA data analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY3"><span class="toc-number">1.3.</span> <span class="toc-text">DAY3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RNA-seq-data-analysis"><span class="toc-number">1.3.1.</span> <span class="toc-text">RNA-seq data analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-regression"><span class="toc-number">1.3.2.</span> <span class="toc-text">Linear regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#An-example-data"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">An example data</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA-data-analysis"><span class="toc-number">1.2.1.</span> <span class="toc-text">DNA data analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-3"><span class="toc-number">1.3.</span> <span class="toc-text">DAY 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RNA-seq-data-analysis"><span class="toc-number">1.3.1.</span> <span class="toc-text">RNA-seq data analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-regression"><span class="toc-number">1.3.2.</span> <span class="toc-text">Linear regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#An-example-data"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">An example data</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Homework-1"><span class="toc-number">1.4.</span> <span class="toc-text">Homework 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-4"><span class="toc-number">1.5.</span> <span class="toc-text">DAY 4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualize-the-data"><span class="toc-number">1.5.1.</span> <span class="toc-text">Visualize the data</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PCA"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">PCA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#t-SNE-and-UMAP"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">t-SNE (and UMAP)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clustering-methods"><span class="toc-number">1.5.2.</span> <span class="toc-text">Clustering methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K-Means"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">K-Means</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hierarchical-clustering"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">Hierarchical clustering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Density-estimator"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">Density estimator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Leiden-clustering-Louvian-clustering"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">Leiden clustering (Louvian clustering)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Clustering-evaluation-metrics"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">Clustering evaluation metrics</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice"><span class="toc-number">1.5.2.6.</span> <span class="toc-text">Practice</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graphical-models"><span class="toc-number">1.5.3.</span> <span class="toc-text">Graphical models</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
