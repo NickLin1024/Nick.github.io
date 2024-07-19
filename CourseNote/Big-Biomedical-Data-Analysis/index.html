@@ -30,8 +30,10 @@
 <meta property="og:image" content="https://nicccce.github.io/_19092.png">
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240716194327048.png">
 <meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240716232544852.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240717170318627.png">
+<meta property="og:image" content="https://nicccce.github.io/CourseNote/Big-Biomedical-Data-Analysis/image-20240718175222514.png">
 <meta property="article:published_time" content="2024-07-12T09:07:26.000Z">
-<meta property="article:modified_time" content="2024-07-17T02:50:01.703Z">
+<meta property="article:modified_time" content="2024-07-19T16:53:11.635Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
@@ -248,7 +250,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.3k字</span>
+      <span class="post-count">7.4k字</span>
     </span>
   </span>
 
@@ -257,7 +259,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">23分</span>
+      <span class="post-count">32分</span>
     </span>
   </span>
 </div>
@@ -501,7 +503,7 @@
 <h4 id="Hierarchical-clustering"><a href="#Hierarchical-clustering" class="headerlink" title="Hierarchical clustering"></a><strong>Hierarchical clustering</strong></h4><p>聚类算法，它通过逐步合并或分割数据点来构建聚类层次结构。</p>
 <p>自顶向下的方法，开始时所有数据点都在一个簇中，然后通过递归，将簇分成更小的子簇来构建聚类层次。</p>
 <h4 id="Density-estimator"><a href="#Density-estimator" class="headerlink" title="Density estimator"></a><strong>Density estimator</strong></h4><p>密度估计，根据数据密度估计不同位置数据出现的概率，可以理解为根据数据的密度拟合一个函数</p>
-<h4 id="Leiden-clustering-Louvian-clustering"><a href="#Leiden-clustering-Louvian-clustering" class="headerlink" title="Leiden clustering (Louvian clustering)"></a><strong>Leiden clustering (Louvian clustering)</strong></h4><p>Modularity is a measure of the structure of networks graphs which measures the strength of division of a network into modules (also called groups, clusters or communities).</p>
+<h4 id="Leiden-clustering"><a href="#Leiden-clustering" class="headerlink" title="Leiden clustering ( )"></a><strong>Leiden clustering ( )</strong></h4><p>Modularity is a measure of the structure of networks graphs which measures the strength of division of a network into modules (also called groups, clusters or communities).</p>
 <p>用于在一个网络中实现聚类</p>
 <h4 id="Clustering-evaluation-metrics"><a href="#Clustering-evaluation-metrics" class="headerlink" title="Clustering evaluation metrics"></a><strong>Clustering evaluation metrics</strong></h4><p>Silhouette Score $&#x3D; (b-a)&#x2F;max(a,b)$</p>
 <p>1表示样本与其自身的簇非常相似，0表示样本位于两个簇的边界上，-1表示样本更适合与其他簇</p>
@@ -613,6 +615,146 @@ correlation_coefficient, p_value = pearsonr(original_flattened, new_flattened)
 <p>表示在特定状态下观察到某个可见数据的概率。这些概率可以用观测矩阵来表示，矩阵的元素包括在每个状态下观察到每个可见数据的概率。</p>
 </li>
 </ul>
+<h2 id="DAY-6"><a href="#DAY-6" class="headerlink" title="DAY 6"></a>DAY 6</h2><h3 id="Single-cell-genomics"><a href="#Single-cell-genomics" class="headerlink" title="Single-cell genomics"></a>Single-cell genomics</h3><ul>
+<li><h4 id="C1-Most-importantly-human-eyes-can’t-see-anything-beyond-3D"><a href="#C1-Most-importantly-human-eyes-can’t-see-anything-beyond-3D" class="headerlink" title="C1 Most importantly, human eyes can’t see anything beyond 3D"></a><strong>C1 Most importantly, human eyes can’t see anything beyond 3D</strong></h4></li>
+</ul>
+<h4 id="Curse-of-dimensionality"><a href="#Curse-of-dimensionality" class="headerlink" title="Curse of dimensionality"></a><strong>Curse of dimensionality</strong></h4><p>Analyzing of the high dimensional data often suffers from the curse of dimensionality</p>
+<p>The searching space increases exponentially. </p>
+<p>Neighbors of each data point also increase exponentially. </p>
+<p>Distances are on longer informative</p>
+<h4 id="Dimensionality-reduction"><a href="#Dimensionality-reduction" class="headerlink" title="Dimensionality reduction"></a><strong>Dimensionality reduction</strong></h4><p>Linear F</p>
+<p>PCA</p>
+<p>Non-linear F</p>
+<blockquote>
+<p>Non-linearly separable data</p>
+<p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240717170318627.png" alt="image-20240717170318627"></p>
+</blockquote>
+<p>t-SNE (U-MAP)</p>
+<p>Auto-encoder</p>
+<p><strong>PCA</strong></p>
+<p>Find a linear transformation to project the data from HD to LD space that minimize the projection error.</p>
+<p><strong>t-SNE</strong></p>
+<p>1)Measuring the distance in higher dimensional space (Gaussian distribution)</p>
+<p>2)Measuring the distance in lower dimensional space (long-tail student t distribution)</p>
+<p>3)The locations of the points in the LD space (y) are determined by minimizing the (non-symmetric) Kullback–Leibler divergenceof the distribution P from the distribution Q. Then use the gradient descent to search the y(i) that minimize the KL divergence C.</p>
+<p><strong>Diffusion Map</strong></p>
+<p>是一种非线性降维技术</p>
+<p>假设对一个马尔科夫链，他的转移概率矩阵为M，那他的后两次地转移概率矩阵就是$M^2$，这就叫Diffusion</p>
+<p>Diffusion Map 利用了数据的扩散过程，通过计算数据点之间的相似性和扩散距离来构建低维表示。它可以在保留数据结构的同时，更好地捕捉非线性关系和聚类结构。</p>
+<h4 id="Autoencoder"><a href="#Autoencoder" class="headerlink" title="Autoencoder"></a>Autoencoder</h4><p>也是一种非线性降维技术</p>
+<p>由编码器（Encoder）和解码器（Decoder）组成</p>
+<p> 将输入数据压缩到低维编码表示，然后再将其解码为原始输入的重构。自编码器可以用于降维、特征学习、数据去噪等任务。</p>
+<ul>
+<li><h4 id="C2-Single-cell-data-is-very-noisy"><a href="#C2-Single-cell-data-is-very-noisy" class="headerlink" title="C2. Single-cell data is very noisy"></a><strong>C2. Single-cell data is very noisy</strong></h4></li>
+</ul>
+<h4 id="MAGIC"><a href="#MAGIC" class="headerlink" title="MAGIC"></a>MAGIC</h4><p>修复单细胞中缺失值的方法</p>
+<p>MAGIC (Markov Affinity-based Graph Imputation of Cells) is a computational method used in single-cell RNA sequencing (scRNA-seq) data analysis. It is designed to address the problem of missing gene expression values in scRNA-seq datasets.</p>
+<h4 id="Single-cell-data-denoising"><a href="#Single-cell-data-denoising" class="headerlink" title="Single-cell data denoising"></a>Single-cell data denoising</h4><p>1)Remove cells with low # of expressing genes</p>
+<p>2)Remove cells with high % of mitochondrial reads</p>
+<ul>
+<li><h4 id="C3-Single-cell-data-is-enormously-heterogeneous"><a href="#C3-Single-cell-data-is-enormously-heterogeneous" class="headerlink" title="C3. Single-cell data is enormously heterogeneous"></a><strong>C3. Single-cell data is enormously heterogeneous</strong></h4></li>
+</ul>
+<p>——Clustering</p>
+<h4 id="Supervised-neural-network-for-clustering"><a href="#Supervised-neural-network-for-clustering" class="headerlink" title="Supervised neural network for clustering"></a>Supervised neural network for clustering</h4><p>一种结合了监督学习和聚类的方法。传统的聚类方法（如k-means、DBSCAN等）通常是无监督的，它们根据数据的内在结构将样本分组成类别。相比之下，监督学习方法需要已知的标签或目标来进行训练和预测。</p>
+<h4 id="Variational-autoencoder"><a href="#Variational-autoencoder" class="headerlink" title="Variational autoencoder"></a>Variational autoencoder</h4><p><img src="/CourseNote/Big-Biomedical-Data-Analysis/image-20240718175222514.png" alt="image-20240718175222514"></p>
+<h4 id="Annotate-cluster"><a href="#Annotate-cluster" class="headerlink" title="Annotate cluster"></a>Annotate cluster</h4><p>A few existing solution:</p>
+<p>(1) Use marker genes</p>
+<p>(2) Use functional analysis (e.g., GO enrichment)</p>
+<p>(3) Compare with expression data with known cell types</p>
+<ul>
+<li><h4 id="C4-Reconstructing-trajectories-from-Single-cell-data"><a href="#C4-Reconstructing-trajectories-from-Single-cell-data" class="headerlink" title="C4. Reconstructing trajectories from Single-cell data"></a>C4. Reconstructing trajectories from Single-cell data</h4></li>
+</ul>
+<p>Infer the cell dynamics (the cellular state change over time) from single-cell data (often time-series)</p>
+<h4 id="Monocle"><a href="#Monocle" class="headerlink" title="Monocle"></a>Monocle</h4><p>一个用于单细胞RNA测序（scRNA-seq）数据分析的软件包，用于推断和分析细胞发育轨迹。它提供了一系列的算法和工具，帮助研究者从单细胞数据中推断细胞类型、发育状态和细胞转录组的动态变化。</p>
+<h4 id="PAGA"><a href="#PAGA" class="headerlink" title="PAGA"></a>PAGA</h4><p>基于细胞间的相似性计算构建细胞之间的连接关系，并根据这些连接关系构建一个图形结构。</p>
+<p>这个图形结构可以被视为细胞社群的一种抽象，其中每个节点代表一个细胞，边代表细胞之间的关系。</p>
+<p>PAGA 使用图论算法来计算和揭示细胞之间的关联和转换。</p>
+<p>1)Graph partitioning and abstraction</p>
+<p>2)Pseudo-time estimation</p>
+<p>3)Preserving Graph topology across resolutions</p>
+<ul>
+<li><h4 id="C5-Reconstructing-the-regulatory-networks-underlying-the-trajectories"><a href="#C5-Reconstructing-the-regulatory-networks-underlying-the-trajectories" class="headerlink" title="C5. Reconstructing the regulatory networks underlying the trajectories"></a>C5. Reconstructing the regulatory networks underlying the trajectories</h4></li>
+</ul>
+<p>Infer the transcription factors and pathways that dictate the cellular dynamics</p>
+<h4 id="GENIE3"><a href="#GENIE3" class="headerlink" title="GENIE3"></a>GENIE3</h4><p>Gene Network Inference with Ensemble of trees</p>
+<p>可以从基因表达数据中推断出基因之间的调控关系和网络拓扑结构</p>
+<p>基于Decision Tree的集成方法，利用Random Forest的思想进行基因网络推断。</p>
+<h4 id="SCDIFF"><a href="#SCDIFF" class="headerlink" title="SCDIFF"></a>SCDIFF</h4><p>Single-Cell Differential Expression Analysis</p>
+<p>确定在不同细胞群体之间具有显著差异表达的基因。它通过统计学方法来鉴定差异表达基因，并提供一种量化的方式来衡量差异的显著性。</p>
+<h2 id="DAY-7"><a href="#DAY-7" class="headerlink" title="DAY 7"></a>DAY 7</h2><h3 id="scanpy"><a href="#scanpy" class="headerlink" title="scanpy"></a>scanpy</h3><p><strong>导包</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scanpy <span class="keyword">as</span> sc</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>读入文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取h5ad文件</span></span><br><span class="line">adata = sc.read_h5ad(<span class="string">&quot;./processed.h5ad&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看数据</span></span><br><span class="line">adata.var</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>数据处理</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 过滤细胞（cells），保留至少具有200个基因的细胞</span></span><br><span class="line">sc.pp.filter_cells(adata, min_genes=<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 过滤基因（genes），保留至少在3个细胞中表达的基因</span></span><br><span class="line">sc.pp.filter_genes(adata, min_cells=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将以&#x27;MT-&#x27;开头的基因注释为&#x27;mt&#x27;，表示线粒体基因组</span></span><br><span class="line">adata.var[<span class="string">&#x27;mt&#x27;</span>] = adata.var_names.<span class="built_in">str</span>.startswith(<span class="string">&#x27;MT-&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算质量控制（QC）指标，包括线粒体基因比例等</span></span><br><span class="line">sc.pp.calculate_qc_metrics(adata, qc_vars=[<span class="string">&#x27;mt&#x27;</span>], percent_top=<span class="literal">None</span>, log1p=<span class="literal">False</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>QC（Quality Control）指标是在科学研究和数据分析中用于评估数据质量和可靠性的指标。在单细胞RNA测序（scRNA-seq）数据分析中，QC指标被广泛应用于评估单细胞数据集的质量，并帮助确定哪些细胞和基因应该用于后续的分析。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制小提琴图，展示基因数、总计数和线粒体基因比例的分布情况</span></span><br><span class="line">sc.pl.violin(adata, [<span class="string">&#x27;n_genes_by_counts&#x27;</span>, <span class="string">&#x27;total_counts&#x27;</span>, <span class="string">&#x27;pct_counts_mt&#x27;</span>], jitter=<span class="number">0.4</span>, multi_panel=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Violin Plot是一种常用的数据可视化工具，用于展示数值变量的分布情况。它结合了箱线图和核密度图的特点，可以同时显示数据的中位数、四分位数、离群值以及数据分布的形状。</li>
+<li>小提琴图的宽度表示该变量或数据组的频数或占比，而高度表示该变量或数据组的密度估计。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 过滤掉线粒体基因比例大于5%的细胞</span></span><br><span class="line">adata = adata[adata.obs.pct_counts_mt &lt; <span class="number">5</span>, :]</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对数据进行总计数归一化</span></span><br><span class="line">sc.pp.normalize_total(adata, target_sum=<span class="number">1e4</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以消除由于细胞大小和测序深度之间的差异引入的偏差。通过将每个细胞的基因表达计数按比例缩放，可以使不同细胞之间的表达量更加可比。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对数据进行log1p变换</span></span><br><span class="line">sc.pp.log1p(adata)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以有效地调整数据的分布形态，并减小高表达基因和低表达基因之间的差异。log1p变换对于处理基因表达计数数据特别有用，因为基因表达计数数据通常呈现出skewed distribution</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 筛选高度变异的基因</span></span><br><span class="line">sc.pp.highly_variable_genes(adata, min_mean=<span class="number">0.0125</span>, min_disp=<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>min_mean</code>：是一个可选参数，用于指定基因的最小平均表达量阈值。具有低于该阈值的平均表达量的基因将被排除在高度变异基因的筛选之外。默认值为0.0125。</li>
+<li><code>min_disp</code>：是一个可选参数，用于指定基因的最小离散度阈值。具有低于该阈值的离散度的基因将被排除在高度变异基因的筛选之外。默认值为0.5。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制高度变异基因的基因表达特征</span></span><br><span class="line">sc.pl.highly_variable_genes(adata)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保留高度变异基因的数据</span></span><br><span class="line">adata = adata[:, adata.var.highly_variable]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行PCA降维分析</span></span><br><span class="line">sc.tl.pca(adata, svd_solver=<span class="string">&#x27;arpack&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制PCA结果的散点图，以CD79A基因的表达进行着色，通过CD79A基因的表达水平来查看细胞之间的聚类情况</span></span><br><span class="line">sc.pl.pca(adata, color=<span class="string">&#x27;CD79A&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建细胞邻域关系图，按相似性构建关系</span></span><br><span class="line">sc.pp.neighbors(adata, n_neighbors=<span class="number">10</span>, n_pcs=<span class="number">40</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行Leiden社群检测</span></span><br><span class="line">sc.tl.leiden(adata)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>n_neighbors</code>：指定每个细胞的最近邻居数量。它决定了在邻域关系图中与每个细胞连接的边的数量。较大的值可以提高细胞之间的连接性，但也会增加计算的复杂性。默认值为 <code>10</code>。</li>
+<li><code>n_pcs</code>：指定用于降维的主成分数量。在构建邻域关系图之前，常常使用PCA对细胞的基因表达数据进行降维，以减少维度。<code>n_pcs</code> 参数决定了保留的主成分数量。较大的值可以更好地捕捉数据的变化，但也会增加计算的复杂性。默认值为 <code>40</code>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行PAGA分析</span></span><br><span class="line">sc.tl.paga(adata)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制PAGA结果的图形</span></span><br><span class="line">sc.pl.paga(adata)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进行UMAP降维分析</span></span><br><span class="line">sc.tl.umap(adata)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制UMAP结果的散点图，以Leiden社群为颜色标记</span></span><br><span class="line">sc.pl.umap(adata, color=<span class="string">&quot;leiden&quot;</span>, legend_loc=<span class="string">&quot;on data&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将处理后的数据保存为h5ad文件，使用9级压缩</span></span><br><span class="line">adata.write_h5ad(<span class="string">&quot;processed.h5ad&quot;</span>, compression=<span class="number">9</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
     
 
@@ -773,7 +915,7 @@ correlation_coefficient, p_value = pearsonr(original_flattened, new_flattened)
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA-data-analysis"><span class="toc-number">1.2.1.</span> <span class="toc-text">DNA data analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-3"><span class="toc-number">1.3.</span> <span class="toc-text">DAY 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RNA-seq-data-analysis"><span class="toc-number">1.3.1.</span> <span class="toc-text">RNA-seq data analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-regression"><span class="toc-number">1.3.2.</span> <span class="toc-text">Linear regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#An-example-data"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">An example data</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Homework-1"><span class="toc-number">1.4.</span> <span class="toc-text">Homework 1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#select-features"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">select features</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ROC"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">ROC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cross-validation"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">Cross validation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-4"><span class="toc-number">1.5.</span> <span class="toc-text">DAY 4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualize-the-data"><span class="toc-number">1.5.1.</span> <span class="toc-text">Visualize the data</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PCA"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">PCA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#t-SNE-and-UMAP"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">t-SNE (and UMAP)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clustering-methods"><span class="toc-number">1.5.2.</span> <span class="toc-text">Clustering methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K-Means"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">K-Means</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hierarchical-clustering"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">Hierarchical clustering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Density-estimator"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">Density estimator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Leiden-clustering-Louvian-clustering"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">Leiden clustering (Louvian clustering)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Clustering-evaluation-metrics"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">Clustering evaluation metrics</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice"><span class="toc-number">1.5.2.6.</span> <span class="toc-text">Practice</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-5"><span class="toc-number">1.6.</span> <span class="toc-text">DAY 5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Graphical-models"><span class="toc-number">1.6.1.</span> <span class="toc-text">Graphical models</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">Graph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bayesian-network"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">Bayesian network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mann-whitney-U-test"><span class="toc-number">1.6.1.3.</span> <span class="toc-text">Mann-whitney U test</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Markov-chain"><span class="toc-number">1.6.1.4.</span> <span class="toc-text">Markov chain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#High-order-Markov-Chain"><span class="toc-number">1.6.1.5.</span> <span class="toc-text">High-order Markov Chain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hidden-Markov-Model-HMM"><span class="toc-number">1.6.1.6.</span> <span class="toc-text">Hidden Markov Model (HMM)</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Big-Biomedical-Data-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Big Biomedical Data Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-1"><span class="toc-number">1.1.</span> <span class="toc-text">DAY 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Translate-Your-Name-Into-DNA-Code"><span class="toc-number">1.1.2.</span> <span class="toc-text">Translate Your Name Into DNA Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base-Paring"><span class="toc-number">1.1.3.</span> <span class="toc-text">Base Paring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Most-Frequent-5-mers"><span class="toc-number">1.1.4.</span> <span class="toc-text">Find Most Frequent 5-mers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-2"><span class="toc-number">1.2.</span> <span class="toc-text">DAY 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA-data-analysis"><span class="toc-number">1.2.1.</span> <span class="toc-text">DNA data analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-3"><span class="toc-number">1.3.</span> <span class="toc-text">DAY 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RNA-seq-data-analysis"><span class="toc-number">1.3.1.</span> <span class="toc-text">RNA-seq data analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-regression"><span class="toc-number">1.3.2.</span> <span class="toc-text">Linear regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#An-example-data"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">An example data</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Homework-1"><span class="toc-number">1.4.</span> <span class="toc-text">Homework 1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#select-features"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">select features</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ROC"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">ROC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cross-validation"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">Cross validation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-4"><span class="toc-number">1.5.</span> <span class="toc-text">DAY 4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Visualize-the-data"><span class="toc-number">1.5.1.</span> <span class="toc-text">Visualize the data</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PCA"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">PCA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#t-SNE-and-UMAP"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">t-SNE (and UMAP)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clustering-methods"><span class="toc-number">1.5.2.</span> <span class="toc-text">Clustering methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K-Means"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">K-Means</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hierarchical-clustering"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">Hierarchical clustering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Density-estimator"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">Density estimator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Leiden-clustering"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">Leiden clustering ( )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Clustering-evaluation-metrics"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">Clustering evaluation metrics</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Practice"><span class="toc-number">1.5.2.6.</span> <span class="toc-text">Practice</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-5"><span class="toc-number">1.6.</span> <span class="toc-text">DAY 5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Graphical-models"><span class="toc-number">1.6.1.</span> <span class="toc-text">Graphical models</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">Graph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bayesian-network"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">Bayesian network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mann-whitney-U-test"><span class="toc-number">1.6.1.3.</span> <span class="toc-text">Mann-whitney U test</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Markov-chain"><span class="toc-number">1.6.1.4.</span> <span class="toc-text">Markov chain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#High-order-Markov-Chain"><span class="toc-number">1.6.1.5.</span> <span class="toc-text">High-order Markov Chain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hidden-Markov-Model-HMM"><span class="toc-number">1.6.1.6.</span> <span class="toc-text">Hidden Markov Model (HMM)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-6"><span class="toc-number">1.7.</span> <span class="toc-text">DAY 6</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-cell-genomics"><span class="toc-number">1.7.1.</span> <span class="toc-text">Single-cell genomics</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#C1-Most-importantly-human-eyes-can%E2%80%99t-see-anything-beyond-3D"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">C1 Most importantly, human eyes can’t see anything beyond 3D</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Curse-of-dimensionality"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">Curse of dimensionality</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dimensionality-reduction"><span class="toc-number">1.7.1.3.</span> <span class="toc-text">Dimensionality reduction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Autoencoder"><span class="toc-number">1.7.1.4.</span> <span class="toc-text">Autoencoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C2-Single-cell-data-is-very-noisy"><span class="toc-number">1.7.1.5.</span> <span class="toc-text">C2. Single-cell data is very noisy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MAGIC"><span class="toc-number">1.7.1.6.</span> <span class="toc-text">MAGIC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Single-cell-data-denoising"><span class="toc-number">1.7.1.7.</span> <span class="toc-text">Single-cell data denoising</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C3-Single-cell-data-is-enormously-heterogeneous"><span class="toc-number">1.7.1.8.</span> <span class="toc-text">C3. Single-cell data is enormously heterogeneous</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Supervised-neural-network-for-clustering"><span class="toc-number">1.7.1.9.</span> <span class="toc-text">Supervised neural network for clustering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Variational-autoencoder"><span class="toc-number">1.7.1.10.</span> <span class="toc-text">Variational autoencoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Annotate-cluster"><span class="toc-number">1.7.1.11.</span> <span class="toc-text">Annotate cluster</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C4-Reconstructing-trajectories-from-Single-cell-data"><span class="toc-number">1.7.1.12.</span> <span class="toc-text">C4. Reconstructing trajectories from Single-cell data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Monocle"><span class="toc-number">1.7.1.13.</span> <span class="toc-text">Monocle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PAGA"><span class="toc-number">1.7.1.14.</span> <span class="toc-text">PAGA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C5-Reconstructing-the-regulatory-networks-underlying-the-trajectories"><span class="toc-number">1.7.1.15.</span> <span class="toc-text">C5. Reconstructing the regulatory networks underlying the trajectories</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GENIE3"><span class="toc-number">1.7.1.16.</span> <span class="toc-text">GENIE3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SCDIFF"><span class="toc-number">1.7.1.17.</span> <span class="toc-text">SCDIFF</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAY-7"><span class="toc-number">1.8.</span> <span class="toc-text">DAY 7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#scanpy"><span class="toc-number">1.8.1.</span> <span class="toc-text">scanpy</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
