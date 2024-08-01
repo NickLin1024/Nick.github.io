@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://nicccce.github.io">
-  <title>Hello World | NICCCCE</title>
+  <title>WebSocket笔记 | NICCCCE</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Welcome to NICK’s BLOG!  At Beginningiiiii This is my first blog !!!!!">
+  <meta name="description" content="WebSocketWebSocket是一种在基于TCP连接上进行全双工通信的协议  全双工（Full Duplex）：允许数据在两个方向上同时传输。 半双工（Half Duplex）：允许数据在两个方向上传输，但是同一个时间段内只允许一个方向上传输。  原理 请求数据 1234567GET ws:&#x2F;&#x2F;localhost&#x2F;chat HTTP&#x2F;1.1Host: localhostConnection:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://nicccce.github.io/Home/hello-world/">
+<meta property="og:title" content="WebSocket笔记">
+<meta property="og:url" content="https://nicccce.github.io/TechNotes/WebSocket-Note/">
 <meta property="og:site_name" content="NICCCCE">
-<meta property="og:description" content="Welcome to NICK’s BLOG!  At Beginningiiiii This is my first blog !!!!!">
+<meta property="og:description" content="WebSocketWebSocket是一种在基于TCP连接上进行全双工通信的协议  全双工（Full Duplex）：允许数据在两个方向上同时传输。 半双工（Half Duplex）：允许数据在两个方向上传输，但是同一个时间段内只允许一个方向上传输。  原理 请求数据 1234567GET ws:&#x2F;&#x2F;localhost&#x2F;chat HTTP&#x2F;1.1Host: localhostConnection:">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="3024-04-02T09:11:40.000Z">
-<meta property="article:modified_time" content="2024-05-07T18:25:54.017Z">
+<meta property="og:image" content="https://nicccce.github.io/TechNotes/WebSocket-Note/image-20240731165005793.png">
+<meta property="article:published_time" content="2024-07-31T07:57:17.000Z">
+<meta property="article:modified_time" content="2024-08-01T14:03:38.457Z">
 <meta property="article:author" content="NICK">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nicccce.github.io/TechNotes/WebSocket-Note/image-20240731165005793.png">
   
     <link rel="alternative" href="/atom.xml" title="NICCCCE" type="application/atom+xml">
   
@@ -199,14 +203,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-WebSocket-Note" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      WebSocket笔记
     </h1>
   
 
@@ -218,8 +222,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/Home/hello-world/" class="archive-article-date">
-        <time datetime="3024-04-02T09:11:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>3024-04-02</time>
+<a href="/TechNotes/WebSocket-Note/" class="archive-article-date">
+        <time datetime="2024-07-31T07:57:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-31</time>
 </a>
 
   
@@ -232,7 +236,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">12字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -241,7 +245,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -252,8 +256,134 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Welcome to NICK’s BLOG! </p>
-<h2 id="At-Beginning"><a href="#At-Beginning" class="headerlink" title="At Beginning"></a>At Beginning</h2><p>iiiii This is my first blog !!!!!</p>
+    <h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p>WebSocket是一种在基于TCP连接上进行全双工通信的协议</p>
+<blockquote>
+<p>全双工（Full Duplex）：允许数据在两个方向上同时传输。</p>
+<p>半双工（Half Duplex）：允许数据在两个方向上传输，但是同一个时间段内只允许一个方向上传输。</p>
+</blockquote>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="/TechNotes/WebSocket-Note/image-20240731165005793.png" alt="image-20240731165005793"></p>
+<p><strong>请求数据</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">ws://localhost/chat</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>localhost</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>Upgrade</span><br><span class="line"><span class="attribute">Upgrade</span><span class="punctuation">: </span>websocket</span><br><span class="line"><span class="attribute">Sec-WebSocket-Version</span><span class="punctuation">: </span>13</span><br><span class="line"><span class="attribute">Sec-WebSocket-Key</span><span class="punctuation">: </span>dGhlIHNhbXBsZSBub25jZQ==</span><br><span class="line"><span class="attribute">Sec-WebSocket-Extensions</span><span class="punctuation">: </span>permessage-deflate</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>响应数据</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">101</span> Switching Protocols</span><br><span class="line"><span class="attribute">Upgrade</span><span class="punctuation">: </span>websocket</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>Upgrade</span><br><span class="line"><span class="attribute">Sec-WebSocket-Accept</span><span class="punctuation">: </span>s3pPLMBiTxaQ9kYGzzhZRbK+xOo=</span><br><span class="line"><span class="attribute">Sec-WebSocket-Extensions</span><span class="punctuation">: </span>permessage-deflate</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="WebSocket-API"><a href="#WebSocket-API" class="headerlink" title="WebSocket API"></a>WebSocket API</h2><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><h4 id="对象创建"><a href="#对象创建" class="headerlink" title="对象创建"></a><strong>对象创建</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span>  ws  =  <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="variable constant_">URL</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>格式：协议:&#x2F;&#x2F;ip地址&#x2F;访问路径</li>
+<li>协议：协议名称为 ws</li>
+</ul>
+<h4 id="相关事件"><a href="#相关事件" class="headerlink" title="相关事件"></a><strong>相关事件</strong></h4><table>
+<thead>
+<tr>
+<th><strong>事件</strong></th>
+<th><strong>事件处理程序</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>open</td>
+<td><code>ws.onopen</code></td>
+<td>连接建立时触发</td>
+</tr>
+<tr>
+<td>message</td>
+<td><code>ws.onmessage</code></td>
+<td>客户端接收到服务器发送的数据时触发</td>
+</tr>
+<tr>
+<td>close</td>
+<td><code>ws.onclose</code></td>
+<td>连接关闭时触发</td>
+</tr>
+</tbody></table>
+<h4 id="对象提供的方法"><a href="#对象提供的方法" class="headerlink" title="对象提供的方法"></a><strong>对象提供的方法</strong></h4><table>
+<thead>
+<tr>
+<th><strong>方法名称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>send()</td>
+<td>通过websocket对象调用该方法发送数据给服务端</td>
+</tr>
+</tbody></table>
+<p><strong>示例</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> ws;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>: <span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">           <span class="comment">//...</span></span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">created</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="title function_">init</span>();</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">async</span> <span class="title function_">init</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">await</span> axios.<span class="title function_">get</span>(<span class="string">&quot;user/getUsername&quot;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="variable language_">this</span>.<span class="property">username</span> = res.<span class="property">data</span>;</span></span><br><span class="line"><span class="language-javascript">                &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//创建webSocket对象</span></span></span><br><span class="line"><span class="language-javascript">                ws = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="string">&quot;ws://localhost/chat&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//给ws绑定事件</span></span></span><br><span class="line"><span class="language-javascript">                ws.<span class="property">onopen</span> = <span class="variable language_">this</span>.<span class="property">onopen</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//接收到服务端推送的消息后触发</span></span></span><br><span class="line"><span class="language-javascript">                ws.<span class="property">onmessage</span> = <span class="variable language_">this</span>.<span class="property">onMessage</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                ws.<span class="property">onclose</span> = <span class="variable language_">this</span>.<span class="property">onClose</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">showChat</span>(<span class="params">name</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">			<span class="comment">//...</span></span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">submit</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">sendMessage</span>.<span class="property">toName</span> = <span class="variable language_">this</span>.<span class="property">toName</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">historyMessage</span>.<span class="title function_">push</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="variable language_">this</span>.<span class="property">sendMessage</span>)));</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">sessionStorage</span>.<span class="title function_">setItem</span>(<span class="variable language_">this</span>.<span class="property">toName</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="variable language_">this</span>.<span class="property">historyMessage</span>));</span></span><br><span class="line"><span class="language-javascript">                ws.<span class="title function_">send</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="variable language_">this</span>.<span class="property">sendMessage</span>));</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">sendMessage</span>.<span class="property">message</span> = <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">onOpen</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">isOnline</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">onClose</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">isOnline</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">onMessage</span>(<span class="params">evt</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//获取服务端推送过来的消息</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> dataStr = evt.<span class="property">data</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将dataStr 转换为json对象</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> res = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(dataStr);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//判断是否是系统消息</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span>(res.<span class="property">system</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//系统消息  好友列表展示</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> names = res.<span class="property">message</span>;</span></span><br><span class="line"><span class="language-javascript">                    <span class="variable language_">this</span>.<span class="property">friendsList</span> = [];</span></span><br><span class="line"><span class="language-javascript">                    <span class="variable language_">this</span>.<span class="property">systemMessages</span> = [];</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; names.<span class="property">length</span>; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="keyword">if</span>(names[i] != <span class="variable language_">this</span>.<span class="property">username</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                            <span class="variable language_">this</span>.<span class="property">friendsList</span>.<span class="title function_">push</span>(names[i]);</span></span><br><span class="line"><span class="language-javascript">                            <span class="variable language_">this</span>.<span class="property">systemMessages</span>.<span class="title function_">push</span>(names[i]);</span></span><br><span class="line"><span class="language-javascript">                        &#125;</span></span><br><span class="line"><span class="language-javascript">                    &#125;</span></span><br><span class="line"><span class="language-javascript">                &#125;<span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//非系统消息</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">var</span> history = <span class="variable language_">sessionStorage</span>.<span class="title function_">getItem</span>(res.<span class="property">fromName</span>);</span></span><br><span class="line"><span class="language-javascript">                    <span class="keyword">if</span> (!history) &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="variable language_">this</span>.<span class="property">historyMessage</span> = [res];</span></span><br><span class="line"><span class="language-javascript">                    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="variable language_">this</span>.<span class="property">historyMessage</span>.<span class="title function_">push</span>(res);</span></span><br><span class="line"><span class="language-javascript">                    &#125;</span></span><br><span class="line"><span class="language-javascript">                    <span class="variable language_">sessionStorage</span>.<span class="title function_">setItem</span>(res.<span class="property">fromName</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="variable language_">this</span>.<span class="property">historyMessage</span>));</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><p>Tomcat的7.0.5 版本开始支持WebSocket,并且实现了Java WebSocket规范。</p>
+<h4 id="Endpoint"><a href="#Endpoint" class="headerlink" title="Endpoint"></a>Endpoint</h4><p>Java WebSocket应用由一系列的Endpoint组成。</p>
+<p>Endpoint 是一个java对象，代表WebSocket链接的一端，对于服务端，我们可以视为处理具体WebSocket消息的接口。</p>
+<p>我们可以通过两种方式定义Endpoint:</p>
+<ul>
+<li>编程式：即继承类 javax.websocket.Endpoint并实现其方法。 </li>
+<li>注解式：即定义一个POJO, 并添加 <code>@ServerEndpoin</code>t相关注解。</li>
+</ul>
+<p>Endpoint实例在WebSocket握手时创建，并在客户端与服务端链接过程中有效，最后在链接关闭时结束。在Endpoint接口中明确定义了与其生命周期相关的方法， 规范实现者确保生命周期的各个阶段调用实例的相关方法。生命周期方法如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>方法</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>注解</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>onOpen()</code></td>
+<td>当开启一个新的会话时调用，该方法是客户端与服务端握手成功后调用的方法</td>
+<td><code>@OnOpen</code></td>
+</tr>
+<tr>
+<td><code>onClose()</code></td>
+<td>当会话关闭时调用</td>
+<td><code>@OnClose</code></td>
+</tr>
+<tr>
+<td><code>onError()</code></td>
+<td>当连接过程异常时调用</td>
+<td><code>@OnError</code></td>
+</tr>
+</tbody></table>
+<h4 id="接收数据"><a href="#接收数据" class="headerlink" title="接收数据"></a>接收数据</h4><p>编程式</p>
+<p>通过添加 MessageHandler 消息处理器来接收消息</p>
+<p>注解式</p>
+<p>在定义Endpoint时，通过@OnMessage注解指定接收消息的方法</p>
+<h4 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据"></a>发送数据</h4><p>发送消息则由 RemoteEndpoint 完成， 其实例由 Session 维护。</p>
+<p>发送消息有2种方式发送消息</p>
+<p>通过session.getBasicRemote 获取<strong>同步消息</strong>发送的实例 ， 然后调用其 sendXxx()方法发送消息</p>
+<p>通过session.getAsyncRemote 获取<strong>异步消息</strong>发送实例，然后调用其 sendXxx() 方法发送消息</p>
+<p><strong>示例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.websocket.OnOpen;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnMessage;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.OnClose;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.Session;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.server.ServerEndpoint;</span><br><span class="line"><span class="keyword">import</span> javax.websocket.EndpointConfig;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ServerEndpoint(&quot;/chat&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ChatEndpoint</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OnOpen</span></span><br><span class="line">    <span class="comment">// 连接建立时被调用</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onOpen</span><span class="params">(Session session, EndpointConfig config)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理连接建立时的逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OnMessage</span></span><br><span class="line">    <span class="comment">// 接收到客户端发送的数据时被调用</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理接收到的消息</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OnClose</span></span><br><span class="line">    <span class="comment">// 连接关闭时被调用</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClose</span><span class="params">(Session session)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理连接关闭时的逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><strong>引入起步依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-websocket<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>编写配置类，扫描添加有@ServerEndpoint注解的 Bean</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebsocketConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> ServerEndpointExporter <span class="title function_">serverEndpointExporter</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ServerEndpointExporter</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@Bean</code>用于注入ServerEndpointExporter，自动注册使用<code>@ServerEndpoint</code>注解的类</p>
+<p><strong>编写配置类，用于获取 HttpSession 对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetHttpSessionConfig</span> <span class="keyword">extends</span> <span class="title class_">ServerEndpointConfig</span>.Configurator &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">modifyHandshake</span><span class="params">(ServerEndpointConfig sec, HandshakeRequest request, HandshakeResponse response)</span> &#123;</span><br><span class="line">        <span class="comment">//获取HttpSession对象</span></span><br><span class="line">        <span class="type">HttpSession</span> <span class="variable">httpSession</span> <span class="operator">=</span> (HttpSession) request.getHttpSession();</span><br><span class="line">        <span class="comment">//将httpSession对象保存起来</span></span><br><span class="line">        sec.getUserProperties().put(HttpSession.class.getName(),httpSession);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>继承ServerEndpoint的内部类，重写了 <code>modifyHandshake</code> 方法，该方法在 WebSocket 握手时被调用，允许我们修改握手过程中的配置信息。</p>
+<p>通过 <code>HandshakeRequest</code> 对象获取 HttpSession，并将其存储在 <code>ServerEndpointConfig</code> 的用户属性中，以便在后续的 WebSocket 连接中可以访问 HttpSession。</p>
+<p><strong>在 @ServerEndpoint 注解中引入配置器</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ServerEndpoint(value = &quot;/chat&quot;,configurator = GetHttpSessionConfig.class)</span></span><br></pre></td></tr></table></figure>
+
+
+
 
     
 
@@ -268,7 +398,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://nicccce.github.io/Home/hello-world/" title="Hello World" target="_blank">https://nicccce.github.io/Home/hello-world/</a>
+          <a href="https://nicccce.github.io/TechNotes/WebSocket-Note/" title="WebSocket笔记" target="_blank">https://nicccce.github.io/TechNotes/WebSocket-Note/</a>
         </li>
         
         <li>
@@ -284,19 +414,29 @@
   </div>
   <div class="article-info article-info-index">
     
-    <div class="article-pop-out tagcloud">
-      <i class="icon-tuding"></i>
-      <a class="article-tag-list-link color3">置顶</a>
-    </div>
     
-    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Home//" class="article-tag-list-link color5">Home</a>
+        			<a href="/categories/TechNotes//" class="article-tag-list-link color5">TechNotes</a>
         		</li>
       		
 		</ul>
@@ -351,7 +491,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://nicccce.github.io/Home/hello-world/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://nicccce.github.io/TechNotes/WebSocket-Note/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -366,9 +506,18 @@
 
 <nav id="article-nav">
   
+    <a href="/Home/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
-    <a href="/TechNotes/WebSocket-Note/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">WebSocket笔记</div>
+  
+    <a href="/TechNotes/Go-Web/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Go Web笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -395,7 +544,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#At-Beginning"><span class="toc-number">1.</span> <span class="toc-text">At Beginning</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WebSocket"><span class="toc-number">1.</span> <span class="toc-text">WebSocket</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebSocket-API"><span class="toc-number">1.2.</span> <span class="toc-text">WebSocket API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">前端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">对象创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">相关事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%8F%90%E4%BE%9B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">对象提供的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF"><span class="toc-number">1.2.2.</span> <span class="toc-text">后端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Endpoint"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">Endpoint</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">接收数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">发送数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
