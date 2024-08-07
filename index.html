@@ -844,6 +844,7 @@
 
 
 <h2 id="GORM"><a href="#GORM" class="headerlink" title="GORM"></a>GORM</h2><p><a target="_blank" rel="noopener" href="https://github.com/jinzhu/gorm">Github GORM</a></p>
+<p><a target="_blank" rel="noopener" href="https://gorm.io/zh_CN/docs/">GORM 指南 | GORM - The fantastic ORM library for Golang, aims to be developer friendly.</a></p>
 <h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>连接不同的数据库都需要导入对应数据的驱动程序</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">&quot;github.com/jinzhu/gorm/dialects/mysql&quot;</span></span><br><span class="line"><span class="comment">// import _ &quot;github.com/jinzhu/gorm/dialects/postgres&quot;</span></span><br><span class="line"><span class="comment">// import _ &quot;github.com/jinzhu/gorm/dialects/sqlite&quot;</span></span><br><span class="line"><span class="comment">// import _ &quot;github.com/jinzhu/gorm/dialects/mssql&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -887,133 +888,162 @@
 
 
 <p><strong>模型定义示例</strong></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  gorm.Model</span><br><span class="line">  Name         <span class="type">string</span></span><br><span class="line">  Age          sql.NullInt64</span><br><span class="line">  Birthday     *time.Time</span><br><span class="line">  Email        <span class="type">string</span>  <span class="string">`gorm:&quot;type:varchar(100);unique_index&quot;`</span></span><br><span class="line">  Role         <span class="type">string</span>  <span class="string">`gorm:&quot;size:255&quot;`</span> <span class="comment">// 设置字段大小为255</span></span><br><span class="line">  MemberNumber *<span class="type">string</span> <span class="string">`gorm:&quot;unique;not null&quot;`</span> <span class="comment">// 设置会员号（member number）唯一并且不为空</span></span><br><span class="line">  Num          <span class="type">int</span>     <span class="string">`gorm:&quot;AUTO_INCREMENT&quot;`</span> <span class="comment">// 设置 num 为自增类型</span></span><br><span class="line">  Address      <span class="type">string</span>  <span class="string">`gorm:&quot;index:addr&quot;`</span> <span class="comment">// 给address字段创建名为addr的索引</span></span><br><span class="line">  IgnoreMe     <span class="type">int</span>     <span class="string">`gorm:&quot;-&quot;`</span> <span class="comment">// 忽略本字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">    gorm.Model</span><br><span class="line">    Name         <span class="type">string</span></span><br><span class="line">    Age          sql.NullInt64</span><br><span class="line">    Birthday     *time.Time</span><br><span class="line">    Email        <span class="type">string</span>  <span class="string">`gorm:&quot;type:varchar(100);unique_index&quot;`</span></span><br><span class="line">    Role         <span class="type">string</span>  <span class="string">`gorm:&quot;size:255&quot;`</span> <span class="comment">// 设置字段大小为255</span></span><br><span class="line">    MemberNumber *<span class="type">string</span> <span class="string">`gorm:&quot;unique;not null&quot;`</span> <span class="comment">// 设置会员号（member number）唯一并且不为空</span></span><br><span class="line">    Num          <span class="type">int</span>     <span class="string">`gorm:&quot;autoIncrement&quot;`</span> <span class="comment">// 设置 num 为自增类型</span></span><br><span class="line">    Address      <span class="type">string</span>  <span class="string">`gorm:&quot;index:addr&quot;`</span> <span class="comment">// 给address字段创建名为addr的索引</span></span><br><span class="line">    IgnoreMe     <span class="type">int</span>     <span class="string">`gorm:&quot;-&quot;`</span> <span class="comment">// 忽略本字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="结构体标记（tags）"><a href="#结构体标记（tags）" class="headerlink" title="结构体标记（tags）"></a>结构体标记（tags）</h3><p>使用结构体声明模型时，标记（tags）是可选项。gorm支持以下标记:</p>
-<h4 id="支持的结构体标记（Struct-tags）"><a href="#支持的结构体标记（Struct-tags）" class="headerlink" title="支持的结构体标记（Struct tags）"></a>支持的结构体标记（Struct tags）</h4><table>
+<p>指针类型表示可空字段</p>
+<blockquote>
+<p>在 Go 中，对于引用类型（如指针、slice、map、channel、interface）的变量，可以将它们初始化为 <code>nil</code>，表示空值或者未指向任何有效对象。</p>
+<p>基本类型（如整型、浮点型、布尔型等）是不能被初始化为 <code>nil</code> 的，因为它们不是引用类型，而是值类型。基本类型的零值取决于具体类型，而不是 <code>nil</code>。</p>
+</blockquote>
+<h3 id="结构体标记（tags）"><a href="#结构体标记（tags）" class="headerlink" title="结构体标记（tags）"></a>结构体标记（tags）</h3><p>(最新版本的GORM推荐使用驼峰命名的标签)</p>
+<p>使用结构体声明模型时，标记（tags）是可选项。gorm支持以下标记:</p>
+<table>
 <thead>
 <tr>
-<th align="center">结构体标记（Tag）</th>
-<th align="center">描述</th>
+<th align="left">标签名</th>
+<th align="left">说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">Column</td>
-<td align="center">指定列名</td>
+<td align="left">column</td>
+<td align="left">指定 db 列名</td>
 </tr>
 <tr>
-<td align="center">Type</td>
-<td align="center">指定列数据类型</td>
+<td align="left">type</td>
+<td align="left">列数据类型，推荐使用兼容性好的通用类型，例如：所有数据库都支持 bool、int、uint、float、string、time、bytes 并且可以和其他标签一起使用，例如：<code>not null</code>、<code>size</code>, <code>autoIncrement</code>… 像 <code>varbinary(8)</code> 这样指定数据库数据类型也是支持的。在使用指定数据库数据类型时，它需要是完整的数据库数据类型，如：<code>MEDIUMINT UNSIGNED not NULL AUTO_INCREMENT</code></td>
 </tr>
 <tr>
-<td align="center">Size</td>
-<td align="center">指定列大小, 默认值255</td>
+<td align="left">serializer</td>
+<td align="left">指定将数据序列化或反序列化到数据库中的序列化器, 例如: <code>serializer:json/gob/unixtime</code></td>
 </tr>
 <tr>
-<td align="center">PRIMARY_KEY</td>
-<td align="center">将列指定为主键</td>
+<td align="left">size</td>
+<td align="left">定义列数据类型的大小或长度，例如 <code>size: 256</code></td>
 </tr>
 <tr>
-<td align="center">UNIQUE</td>
-<td align="center">将列指定为唯一</td>
+<td align="left">primaryKey</td>
+<td align="left">将列定义为主键</td>
 </tr>
 <tr>
-<td align="center">DEFAULT</td>
-<td align="center">指定列默认值</td>
+<td align="left">unique</td>
+<td align="left">将列定义为唯一键</td>
 </tr>
 <tr>
-<td align="center">PRECISION</td>
-<td align="center">指定列精度</td>
+<td align="left">default</td>
+<td align="left">定义列的默认值</td>
 </tr>
 <tr>
-<td align="center">NOT NULL</td>
-<td align="center">将列指定为非 NULL</td>
+<td align="left">precision</td>
+<td align="left">指定列的精度</td>
 </tr>
 <tr>
-<td align="center">AUTO_INCREMENT</td>
-<td align="center">指定列是否为自增类型</td>
+<td align="left">scale</td>
+<td align="left">指定列大小</td>
 </tr>
 <tr>
-<td align="center">INDEX</td>
-<td align="center">创建具有或不带名称的索引, 如果多个索引同名则创建复合索引</td>
+<td align="left">not null</td>
+<td align="left">指定列为 NOT NULL</td>
 </tr>
 <tr>
-<td align="center">UNIQUE_INDEX</td>
-<td align="center">和 <code>INDEX</code> 类似，只不过创建的是唯一索引</td>
+<td align="left">autoIncrement</td>
+<td align="left">指定列为自动增长</td>
 </tr>
 <tr>
-<td align="center">EMBEDDED</td>
-<td align="center">将结构设置为嵌入</td>
+<td align="left">autoIncrementIncrement</td>
+<td align="left">自动步长，控制连续记录之间的间隔</td>
 </tr>
 <tr>
-<td align="center">EMBEDDED_PREFIX</td>
-<td align="center">设置嵌入结构的前缀</td>
+<td align="left">embedded</td>
+<td align="left">嵌套字段</td>
 </tr>
 <tr>
-<td align="center">-</td>
-<td align="center">忽略此字段</td>
+<td align="left">embeddedPrefix</td>
+<td align="left">嵌入字段的列名前缀</td>
+</tr>
+<tr>
+<td align="left">autoCreateTime</td>
+<td align="left">创建时追踪当前时间，对于 <code>int</code> 字段，它会追踪时间戳秒数，您可以使用 <code>nano</code>&#x2F;<code>milli</code> 来追踪纳秒、毫秒时间戳，例如：<code>autoCreateTime:nano</code></td>
+</tr>
+<tr>
+<td align="left">autoUpdateTime</td>
+<td align="left">创建&#x2F;更新时追踪当前时间，对于 <code>int</code> 字段，它会追踪时间戳秒数，您可以使用 <code>nano</code>&#x2F;<code>milli</code> 来追踪纳秒、毫秒时间戳，例如：<code>autoUpdateTime:milli</code></td>
+</tr>
+<tr>
+<td align="left">index</td>
+<td align="left">根据参数创建索引，多个字段使用相同的名称则创建复合索引，查看 <a target="_blank" rel="noopener" href="https://gorm.io/zh_CN/docs/indexes.html">索引</a> 获取详情</td>
+</tr>
+<tr>
+<td align="left">uniqueIndex</td>
+<td align="left">与 <code>index</code> 相同，但创建的是唯一索引</td>
+</tr>
+<tr>
+<td align="left">check</td>
+<td align="left">创建检查约束，例如 <code>check:age &gt; 13</code>，查看 <a target="_blank" rel="noopener" href="https://gorm.io/zh_CN/docs/constraints.html">约束</a> 获取详情</td>
+</tr>
+<tr>
+<td align="left">&lt;-</td>
+<td align="left">设置字段写入的权限， <code>&lt;-:create</code> 只创建、<code>&lt;-:update</code> 只更新、<code>&lt;-:false</code> 无写入权限、<code>&lt;-</code> 创建和更新权限</td>
+</tr>
+<tr>
+<td align="left">-&gt;</td>
+<td align="left">设置字段读的权限，<code>-&gt;:false</code> 无读权限</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">忽略该字段，<code>-</code> 表示无读写，<code>-:migration</code> 表示无迁移权限，<code>-:all</code> 表示无读写迁移权限</td>
+</tr>
+<tr>
+<td align="left">comment</td>
+<td align="left">迁移时为字段添加注释</td>
 </tr>
 </tbody></table>
-<h4 id="关联相关标记（tags）"><a href="#关联相关标记（tags）" class="headerlink" title="关联相关标记（tags）"></a>关联相关标记（tags）</h4><table>
+<h4 id="关联标签（Association-Tags）"><a href="#关联标签（Association-Tags）" class="headerlink" title="关联标签（Association Tags）"></a>关联标签（Association Tags）</h4><p>GORM中的关联标签通常用于指定如何处理模型之间的关联。 这些标签定义了一些关系细节，比如外键，引用和约束。 理解这些标签对于有效地建立和管理模型之间的关系而言至关重要。</p>
+<table>
 <thead>
 <tr>
-<th align="center">结构体标记（Tag）</th>
-<th align="center">描述</th>
+<th align="left">标签</th>
+<th align="left">描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">MANY2MANY</td>
-<td align="center">指定连接表</td>
+<td align="left"><code>foreignKey</code></td>
+<td align="left">Specifies the column name of the current model used as a foreign key in the join table.</td>
 </tr>
 <tr>
-<td align="center">FOREIGNKEY</td>
-<td align="center">设置外键</td>
+<td align="left"><code>references</code></td>
+<td align="left">Indicates the column name in the reference table that the foreign key of the join table maps to.</td>
 </tr>
 <tr>
-<td align="center">ASSOCIATION_FOREIGNKEY</td>
-<td align="center">设置关联外键</td>
+<td align="left"><code>polymorphic</code></td>
+<td align="left">Defines the polymorphic type, typically the model name.</td>
 </tr>
 <tr>
-<td align="center">POLYMORPHIC</td>
-<td align="center">指定多态类型</td>
+<td align="left"><code>polymorphicValue</code></td>
+<td align="left">Sets the polymorphic value, usually the table name, if not specified otherwise.</td>
 </tr>
 <tr>
-<td align="center">POLYMORPHIC_VALUE</td>
-<td align="center">指定多态值</td>
+<td align="left"><code>many2many</code></td>
+<td align="left">Names the join table used in a many-to-many relationship.</td>
 </tr>
 <tr>
-<td align="center">JOINTABLE_FOREIGNKEY</td>
-<td align="center">指定连接表的外键</td>
+<td align="left"><code>joinForeignKey</code></td>
+<td align="left">Identifies the foreign key column in the join table that maps back to the current model’s table.</td>
 </tr>
 <tr>
-<td align="center">ASSOCIATION_JOINTABLE_FOREIGNKEY</td>
-<td align="center">指定连接表的关联外键</td>
+<td align="left"><code>joinReferences</code></td>
+<td align="left">Points to the foreign key column in the join table that links to the reference model’s table.</td>
 </tr>
 <tr>
-<td align="center">SAVE_ASSOCIATIONS</td>
-<td align="center">是否自动完成 save 的相关操作</td>
-</tr>
-<tr>
-<td align="center">ASSOCIATION_AUTOUPDATE</td>
-<td align="center">是否自动完成 update 的相关操作</td>
-</tr>
-<tr>
-<td align="center">ASSOCIATION_AUTOCREATE</td>
-<td align="center">是否自动完成 create 的相关操作</td>
-</tr>
-<tr>
-<td align="center">ASSOCIATION_SAVE_REFERENCE</td>
-<td align="center">是否自动完成引用的 save 的相关操作</td>
-</tr>
-<tr>
-<td align="center">PRELOAD</td>
-<td align="center">是否自动完成预加载的相关操作</td>
+<td align="left"><code>constraint</code></td>
+<td align="left">Specifies relational constraints like <code>OnUpdate</code>, <code>OnDelete</code> for the association.</td>
 </tr>
 </tbody></table>
-<h2 id="主键、表名、列名的约定"><a href="#主键、表名、列名的约定" class="headerlink" title="主键、表名、列名的约定"></a>主键、表名、列名的约定</h2><h3 id="主键（Primary-Key）"><a href="#主键（Primary-Key）" class="headerlink" title="主键（Primary Key）"></a>主键（Primary Key）</h3><p>GORM 默认会使用名为ID的字段作为表的主键。</p>
+<h3 id="主键、表名、列名的约定"><a href="#主键、表名、列名的约定" class="headerlink" title="主键、表名、列名的约定"></a>主键、表名、列名的约定</h3><h4 id="主键（Primary-Key）"><a href="#主键（Primary-Key）" class="headerlink" title="主键（Primary Key）"></a>主键（Primary Key）</h4><p>GORM 默认会使用名为ID的字段作为表的主键。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID   <span class="type">string</span> <span class="comment">// 名为`ID`的字段会默认作为表的主键</span></span><br><span class="line">  Name <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用`AnimalID`作为主键</span></span><br><span class="line"><span class="keyword">type</span> Animal <span class="keyword">struct</span> &#123;</span><br><span class="line">  AnimalID <span class="type">int64</span> <span class="string">`gorm:&quot;primary_key&quot;`</span></span><br><span class="line">  Name     <span class="type">string</span></span><br><span class="line">  Age      <span class="type">int64</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="表名（Table-Name）"><a href="#表名（Table-Name）" class="headerlink" title="表名（Table Name）"></a>表名（Table Name）</h3><p>表名默认就是结构体名称的复数，例如：</p>
+
+
+<h4 id="表名（Table-Name）"><a href="#表名（Table-Name）" class="headerlink" title="表名（Table Name）"></a>表名（Table Name）</h4><p>表名默认就是结构体名称的复数，例如：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;&#125; <span class="comment">// 默认表名是 `users`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 User 的表名设置为 `profiles`</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(User)</span></span> TableName() <span class="type">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;profiles&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u User)</span></span> TableName() <span class="type">string</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> u.Role == <span class="string">&quot;admin&quot;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;admin_users&quot;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;users&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁用默认表名的复数形式，如果置为 true，则 `User` 的默认表名是 `user`</span></span><br><span class="line">db.SingularTable(<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
 
 <p>也可以通过<code>Table()</code>指定表名：</p>
@@ -1022,19 +1052,51 @@
 <p>GORM还支持更改默认表名称规则：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gorm.DefaultTableNameHandler = <span class="function"><span class="keyword">func</span> <span class="params">(db *gorm.DB, defaultTableName <span class="type">string</span>)</span></span> <span class="type">string</span>  &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;prefix_&quot;</span> + defaultTableName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="列名（Column-Name）"><a href="#列名（Column-Name）" class="headerlink" title="列名（Column Name）"></a>列名（Column Name）</h3><p>列名由字段名称进行下划线分割来生成</p>
+
+
+<h4 id="列名（Column-Name）"><a href="#列名（Column-Name）" class="headerlink" title="列名（Column Name）"></a>列名（Column Name）</h4><p>列名由字段名称进行下划线分割来生成</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID        <span class="type">uint</span>      <span class="comment">// column name is `id`</span></span><br><span class="line">  Name      <span class="type">string</span>    <span class="comment">// column name is `name`</span></span><br><span class="line">  Birthday  time.Time <span class="comment">// column name is `birthday`</span></span><br><span class="line">  CreatedAt time.Time <span class="comment">// column name is `created_at`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以使用结构体tag指定列名：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Animal <span class="keyword">struct</span> &#123;</span><br><span class="line">  AnimalId    <span class="type">int64</span>     <span class="string">`gorm:&quot;column:beast_id&quot;`</span>         <span class="comment">// set column name to `beast_id`</span></span><br><span class="line">  Birthday    time.Time <span class="string">`gorm:&quot;column:day_of_the_beast&quot;`</span> <span class="comment">// set column name to `day_of_the_beast`</span></span><br><span class="line">  Age         <span class="type">int64</span>     <span class="string">`gorm:&quot;column:age_of_the_beast&quot;`</span> <span class="comment">// set column name to `age_of_the_beast`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="时间戳跟踪"><a href="#时间戳跟踪" class="headerlink" title="时间戳跟踪"></a>时间戳跟踪</h3><h4 id="CreatedAt"><a href="#CreatedAt" class="headerlink" title="CreatedAt"></a>CreatedAt</h4><p>如果模型有 <code>CreatedAt</code>字段，该字段的值将会是初次创建记录的时间。</p>
+
+
+<h4 id="时间戳跟踪"><a href="#时间戳跟踪" class="headerlink" title="时间戳跟踪"></a>时间戳跟踪</h4><p><strong>CreatedAt</strong></p>
+<p>如果模型有 <code>CreatedAt</code>字段，该字段的值将会是初次创建记录的时间。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.Create(&amp;user) <span class="comment">// `CreatedAt`将会是当前时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以使用`Update`方法来改变`CreateAt`的值</span></span><br><span class="line">db.Model(&amp;user).Update(<span class="string">&quot;CreatedAt&quot;</span>, time.Now())</span><br></pre></td></tr></table></figure>
 
-<h4 id="UpdatedAt"><a href="#UpdatedAt" class="headerlink" title="UpdatedAt"></a>UpdatedAt</h4><p>如果模型有<code>UpdatedAt</code>字段，该字段的值将会是每次更新记录的时间。</p>
+<p><strong>UpdatedAt</strong></p>
+<p>如果模型有<code>UpdatedAt</code>字段，该字段的值将会是每次更新记录的时间。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.Save(&amp;user) <span class="comment">// `UpdatedAt`将会是当前时间</span></span><br><span class="line"></span><br><span class="line">db.Model(&amp;user).Update(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;jinzhu&quot;</span>) <span class="comment">// `UpdatedAt`将会是当前时间</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="DeletedAt"><a href="#DeletedAt" class="headerlink" title="DeletedAt"></a>DeletedAt</h4><p>如果模型有<code>DeletedAt</code>字段，调用<code>Delete</code>删除该记录时，将会设置<code>DeletedAt</code>字段为当前时间，而不是直接将记录从数据库中删除。</p>
+<p><strong>DeletedAt</strong></p>
+<p>如果模型有<code>DeletedAt</code>字段，调用<code>Delete</code>删除该记录时，将会设置<code>DeletedAt</code>字段为当前时间，而不是直接将记录从数据库中删除。</p>
+<h3 id="CRUD-接口"><a href="#CRUD-接口" class="headerlink" title="CRUD 接口"></a><strong>CRUD 接口</strong></h3><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p><strong>创建记录</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user := User&#123;Name: <span class="string">&quot;Jinzhu&quot;</span>, Age: <span class="number">18</span>, Birthday: time.Now()&#125;</span><br><span class="line"></span><br><span class="line">db.NewRecord(user) <span class="comment">// =&gt; 主键为空返回`true`</span></span><br><span class="line"></span><br><span class="line">db.Create(&amp;user)</span><br><span class="line"></span><br><span class="line">db.NewRecord(user) <span class="comment">// =&gt; 创建`user`后返回`false`</span></span><br></pre></td></tr></table></figure>
+
+<p><code>db.Create()</code> 方法可以接受结构体实例的指针（<code>&amp;</code>）或者结构体实例本身作为参数。因为 GORM 在内部会检查参数类型，并根据需要进行处理。</p>
+<p>但是后者会进行拷贝，消耗过多的内存，所以一般使用指针。</p>
+<p><strong>默认值</strong></p>
+<p>可以通过 tag 定义字段的默认值，比如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Animal <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID   <span class="type">int64</span></span><br><span class="line">  Name <span class="type">string</span> <span class="string">`gorm:&quot;default:&#x27;galeone&#x27;&quot;`</span></span><br><span class="line">  Age  <span class="type">int64</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>生成的 SQL 语句会排除<strong>没有值或值为零值</strong>的字段。 </p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> animal = Animal&#123;Age: <span class="number">99</span>, Name: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">db.Create(&amp;animal)</span><br><span class="line"><span class="comment">// INSERT INTO animals(&quot;age&quot;) values(&#x27;99&#x27;);</span></span><br><span class="line"><span class="comment">// SELECT name from animals WHERE ID=111; // 返回主键为 111</span></span><br><span class="line"><span class="comment">// animal.Name =&gt; &#x27;galeone&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>:  所有字段的零值, 比如 <code>0</code>, <code>&#39;&#39;</code>, <code>false</code> 或者其它零值，都不会保存到数据库内，但会使用他们的默认值。 </p>
+<p>如果在数据库中将字段标记为非空（NOT NULL），而在 GORM 中没有设置默认值，并且代码中传递了零值给这个字段，会导致数据库操作失败。</p>
+<p>如果想避免这种情况，可以考虑使用指针或实现 Scanner&#x2F;Valuer 接口，比如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用指针</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  gorm.Model</span><br><span class="line">  Name <span class="type">string</span></span><br><span class="line">  Age  *<span class="type">int</span> <span class="string">`gorm:&quot;default:18&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Scanner/Valuer</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  gorm.Model</span><br><span class="line">  Name <span class="type">string</span></span><br><span class="line">  Age  sql.NullInt64 <span class="string">`gorm:&quot;default:18&quot;`</span>  <span class="comment">// sql.NullInt64 实现了Scanner/Valuer接口</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>在Hooks中设置字段值</strong></p>
+<p>如果你想在<code>BeforeCreate</code> hook 中修改字段的值，可以使用<code>scope.SetColumn</code>，例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(user *User)</span></span> BeforeCreate(scope *gorm.Scope) <span class="type">error</span> &#123;</span><br><span class="line">  scope.SetColumn(<span class="string">&quot;ID&quot;</span>, uuid.New())</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>扩展创建选项</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为Instert语句添加扩展SQL选项</span></span><br><span class="line">db.Set(<span class="string">&quot;gorm:insert_option&quot;</span>, <span class="string">&quot;ON CONFLICT&quot;</span>).Create(&amp;product)</span><br><span class="line"><span class="comment">// INSERT INTO products (name, code) VALUES (&quot;name&quot;, &quot;code&quot;) ON CONFLICT;</span></span><br></pre></td></tr></table></figure>
 
     
 
