@@ -18,7 +18,7 @@
 <meta property="og:description" content="前端基础1.前端开发介绍那在讲解web前端开发之前，我们先需要对web前端开发有一个整体的认知。主要明确一下三个问题： 1). 网页有哪些部分组成 ? 文字、图片、音频、视频、超链接、表格等等。 2). 我们看到的网页，背后的本质是什么 ? 程序员写的前端代码 (备注：在前后端分离的开发模式中，) 3). 前端的代码是如何转换成用户眼中的网页的 ? 通过浏览器转化（解析和渲染）成用户看到的网页 浏">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-02T09:11:42.000Z">
-<meta property="article:modified_time" content="2024-04-06T12:18:40.178Z">
+<meta property="article:modified_time" content="2024-09-10T03:36:34.271Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="前端">
@@ -1366,13 +1366,8 @@
 </tr>
 </tbody></table>
 <h3 id="v-bind和v-model"><a href="#v-bind和v-model" class="headerlink" title="v-bind和v-model"></a>v-bind和v-model</h3><p>先定义Vue对象</p>
-<pre><code>new Vue(&#123;
-    el: &quot;#app&quot;, //vue接管区域
-    data:&#123;
-       url: &quot;https://www.baidu.com&quot;
-    &#125;
-&#125;)
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&quot;#app&quot;</span>, <span class="comment">//vue接管区域</span></span><br><span class="line">    <span class="attr">data</span>:&#123;</span><br><span class="line">       <span class="attr">url</span>: <span class="string">&quot;https://www.baidu.com&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>v-bind:  为HTML标签绑定属性值，如设置  href , css样式等。当vue对象中的数据模型发生变化时，标签的属性值会随之发生变化</p>
 <p>示例：</p>
