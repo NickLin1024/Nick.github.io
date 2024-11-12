@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Matlab笔记基本使用MATLAB 每行输入结束后需按回车键才可以执行，若MATLAB 命令后为逗号或无标点符号，则在屏幕上直接显示命令的执行结果 若命令后为分号，则禁止显示结果，用分号抑制不必要的结果输出，可以极大地提高编程或计算效率。 11+1    注释 %后面的文字为注释 续行 ...表示续行 使用续行符之后 MATLAB 会自动将前一行保留而不加以计算,并与下一行衔接,等待完整输入后再">
+  <meta name="description" content="Matlab笔记 基本使用 MATLAB 每行输入结束后需按回车键才可以执行，若MATLAB 命令后为逗号或无标点符号，则在屏幕上直接显示命令的执行结果 若命令后为分号，则禁止显示结果，用分号抑制不必要的结果输出，可以极大地提高编程或计算效率。 11+1 注释 %后面的文字为注释 续行 ...表示续行 使用续行符之后 MATLAB 会自动将前一行保留而不加以计算,并与下一行衔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab笔记">
 <meta property="og:url" content="https://nicccce.github.io/MathematicalModeling/Matlab-Note/">
 <meta property="og:site_name" content="NICCCCE">
-<meta property="og:description" content="Matlab笔记基本使用MATLAB 每行输入结束后需按回车键才可以执行，若MATLAB 命令后为逗号或无标点符号，则在屏幕上直接显示命令的执行结果 若命令后为分号，则禁止显示结果，用分号抑制不必要的结果输出，可以极大地提高编程或计算效率。 11+1    注释 %后面的文字为注释 续行 ...表示续行 使用续行符之后 MATLAB 会自动将前一行保留而不加以计算,并与下一行衔接,等待完整输入后再">
+<meta property="og:description" content="Matlab笔记 基本使用 MATLAB 每行输入结束后需按回车键才可以执行，若MATLAB 命令后为逗号或无标点符号，则在屏幕上直接显示命令的执行结果 若命令后为分号，则禁止显示结果，用分号抑制不必要的结果输出，可以极大地提高编程或计算效率。 11+1 注释 %后面的文字为注释 续行 ...表示续行 使用续行符之后 MATLAB 会自动将前一行保留而不加以计算,并与下一行衔">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-10T06:04:11.000Z">
 <meta property="article:modified_time" content="2024-08-10T03:27:45.955Z">
@@ -234,7 +234,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">626字</span>
+      <span class="post-count">627字</span>
     </span>
   </span>
 
@@ -254,53 +254,58 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="Matlab笔记"><a href="#Matlab笔记" class="headerlink" title="Matlab笔记"></a>Matlab笔记</h1><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>MATLAB 每行输入结束后需按回车键才可以执行，若MATLAB 命令后为<strong>逗号或无标点符号</strong>，则在屏幕上<strong>直接显示</strong>命令的执行结果</p>
+    <h1 id="matlab笔记">Matlab笔记</h1>
+<h2 id="基本使用">基本使用</h2>
+<p>MATLAB 每行输入结束后需按回车键才可以执行，若MATLAB
+命令后为<strong>逗号或无标点符号</strong>，则在屏幕上<strong>直接显示</strong>命令的执行结果</p>
 <p>若命令后为<strong>分号</strong>，则<strong>禁止显示</strong>结果，用分号抑制不必要的结果输出，可以极大地提高编程或计算效率。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>+<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-
 <p><strong>注释</strong></p>
 <p><code>%</code>后面的文字为注释</p>
 <p><strong>续行</strong></p>
 <p><code>...</code>表示续行</p>
-<p>使用续行符之后 MATLAB 会自动将前一行保留而不加以计算,并与下一行衔接,等待完整输入后再计算整个输入的结果</p>
+<p>使用续行符之后 MATLAB
+会自动将前一行保留而不加以计算,并与下一行衔接,等待完整输入后再计算整个输入的结果</p>
 <p><strong>清屏</strong></p>
-<p>若命令窗口内容过多,希望恢复初始状态,则可以输入 <code>clc</code> 命令,清除当前窗口内容</p>
+<p>若命令窗口内容过多,希望恢复初始状态,则可以输入 <code>clc</code>
+命令,清除当前窗口内容</p>
 <span id="more"></span>
-
-
-
 <p><strong>历史命令</strong></p>
 <p>历史命令窗口是一个MATLAB重要的用户界面窗口,默认设置下该窗口会保留自安装时起运行过的所有命令的历史记录，并标明使用时间，以方便用户的查询</p>
 <p>这些被记录的命令行都可以被复制，或再运行(只需鼠标左键双击某一行命令,即可在命令窗口中重新执行该命令)</p>
 <p><strong>工作空间管理窗口</strong></p>
-<p>工作区管理窗口是 MATLAB 的重要组成部分。在工作区管理窗口中将显示所有目前保存在内存中的 MATLAB 变量的变量名、数据结构、字节数以及数据类型,而且不同的变量类型分别对应不同的变量名图标，</p>
+<p>工作区管理窗口是 MATLAB
+的重要组成部分。在工作区管理窗口中将显示所有目前保存在内存中的 MATLAB
+变量的变量名、数据结构、字节数以及数据类型,而且不同的变量类型分别对应不同的变量名图标，</p>
 <p><strong>工作空间管理</strong></p>
 <p>MATLAB 用于管理工作空间的常用命令主要有3个：</p>
-<p><code>who</code>(或 <code>whos</code>)，<code>clear</code> 和 <code>pack</code></p>
+<p><code>who</code>(或 <code>whos</code>)，<code>clear</code> 和
+<code>pack</code></p>
 <ul>
-<li><code>who</code> 或 <code>whos</code> 命令用于查询工作空间中的变量，<ul>
+<li><code>who</code> 或 <code>whos</code> 命令用于查询工作空间中的变量，
+<ul>
 <li><code>who</code>命令仅返回保存在工作空间中的变量名，</li>
-<li>而 <code>whos</code>命令不仅返回工作空间中的变量名，而且还返回变量的大小、数据类型等信息</li>
-</ul>
-</li>
-<li><code>clear</code> 命令用于清除工作区管理窗口中的内存变量可以清除某个变量( <code>clear 变量名</code>)，也可以清除所有变量( <code>clear all</code>)</li>
+<li>而
+<code>whos</code>命令不仅返回工作空间中的变量名，而且还返回变量的大小、数据类型等信息</li>
+</ul></li>
+<li><code>clear</code>
+命令用于清除工作区管理窗口中的内存变量可以清除某个变量(
+<code>clear 变量名</code>)，也可以清除所有变量(
+<code>clear all</code>)</li>
 <li><code>pack</code> 命令用于整理工作空间内的数据碎片</li>
 </ul>
 <p><strong>基本语法</strong></p>
 <p>键入一个有效的表达式，例如，</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> ^ <span class="number">2</span>	       <span class="comment">% 3 raised to the power of 2</span></span><br></pre></td></tr></table></figure>
-
 <p>然后按ENTER</p>
-<p>当单击Execute按钮或键入Ctrl + E时，MATLAB将立即执行它，并且返回的结果为-</p>
+<p>当单击Execute按钮或键入Ctrl +
+E时，MATLAB将立即执行它，并且返回的结果为-</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ans</span> = <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-
-
 <p><strong>创建脚本</strong></p>
 <p><code>control</code>+<code>n</code></p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h3>
+<h2 id="算法">算法</h2>
+<h3 id="线性规划">线性规划</h3>
+
     
 
     
@@ -460,7 +465,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Matlab%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Matlab笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92"><span class="toc-number">1.2.1.</span> <span class="toc-text">线性规划</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#matlab%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Matlab笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92"><span class="toc-number">1.2.1.</span> <span class="toc-text">线性规划</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -616,19 +621,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,23 +645,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性代数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,6 +658,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线性代数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
