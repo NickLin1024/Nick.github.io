@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://nicccce.github.io">
-  <title>Root-Divide | NICCCCE</title>
+  <title>根号分治 | NICCCCE</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="浅谈根号分治  根号分治，是暴力美学的集大成体现。 与其说是一种算法，我们不如称它为一个常用的trick。  根号分治，其实就是将一个数据较大、复杂度较大的解法转化为根号级别的解法 寿司晚宴 题目 题目链接：P2150 [NOI2015] 寿司晚宴">
+  <meta name="description" content="根号分治 根号分治，是暴力美学的集大成体现。 与其说是一种算法，我们不如称它为一个常用的trick。  根号分治，其实就是将一个数据较大、复杂度较大的解法转化为根号级别的解法 寿司晚宴题目题目链接：P2150 [NOI2015] 寿司晚宴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Root-Divide">
+<meta property="og:title" content="根号分治">
 <meta property="og:url" content="https://nicccce.github.io/ACM/Root-Divide/">
 <meta property="og:site_name" content="NICCCCE">
-<meta property="og:description" content="浅谈根号分治  根号分治，是暴力美学的集大成体现。 与其说是一种算法，我们不如称它为一个常用的trick。  根号分治，其实就是将一个数据较大、复杂度较大的解法转化为根号级别的解法 寿司晚宴 题目 题目链接：P2150 [NOI2015] 寿司晚宴">
+<meta property="og:description" content="根号分治 根号分治，是暴力美学的集大成体现。 与其说是一种算法，我们不如称它为一个常用的trick。  根号分治，其实就是将一个数据较大、复杂度较大的解法转化为根号级别的解法 寿司晚宴题目题目链接：P2150 [NOI2015] 寿司晚宴">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://nicccce.github.io/ACM/Root-Divide/1506.png">
 <meta property="article:published_time" content="2024-11-12T11:47:34.000Z">
-<meta property="article:modified_time" content="2024-11-12T12:55:29.810Z">
+<meta property="article:modified_time" content="2024-11-20T10:24:49.031Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="c++">
@@ -211,7 +211,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      Root-Divide
+      根号分治
     </h1>
   
 
@@ -257,84 +257,41 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="浅谈根号分治">浅谈根号分治</h1>
-<blockquote>
+    <h1 id="根号分治"><a href="#根号分治" class="headerlink" title="根号分治"></a>根号分治</h1><blockquote>
 <p>根号分治，是暴力美学的集大成体现。</p>
 <p>与其说是一种算法，我们不如称它为一个常用的trick。</p>
 </blockquote>
 <p>根号分治，其实就是将一个数据较大、复杂度较大的解法转化为根号级别的解法</p>
-<h2 id="寿司晚宴">寿司晚宴</h2>
-<h3 id="题目">题目</h3>
-<p>题目链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2150">P2150
-[NOI2015] 寿司晚宴</a></p>
+<h2 id="寿司晚宴"><a href="#寿司晚宴" class="headerlink" title="寿司晚宴"></a>寿司晚宴</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>题目链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2150">P2150 [NOI2015] 寿司晚宴</a></p>
 <span id="more"></span>
 <blockquote>
-<h1 id="noi2015-寿司晚宴">[NOI2015] 寿司晚宴</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>为了庆祝 NOI 的成功开幕，主办方为大家准备了一场寿司晚宴。小 G 和小 W
-作为参加 NOI 的选手，也被邀请参加了寿司晚宴。</p>
-<p>在晚宴上，主办方为大家提供了 <span class="math inline">\(n−1\)</span>
-种不同的寿司，编号 <span
-class="math inline">\(1,2,3,\ldots,n-1\)</span>，其中第 <span
-class="math inline">\(i\)</span> 种寿司的美味度为 <span
-class="math inline">\(i+1\)</span>。（即寿司的美味度为从 <span
-class="math inline">\(2\)</span> 到 <span
-class="math inline">\(n\)</span>）</p>
-<p>现在小 G 和小 W
-希望每人选一些寿司种类来品尝，他们规定一种品尝方案为不和谐的当且仅当：小
-G 品尝的寿司种类中存在一种美味度为 <span
-class="math inline">\(x\)</span> 的寿司，小 W
-品尝的寿司中存在一种美味度为 <span class="math inline">\(y\)</span>
-的寿司，而 <span class="math inline">\(x\)</span> 与 <span
-class="math inline">\(y\)</span> 不互质。</p>
-<p>现在小 G 和小 W
-希望统计一共有多少种和谐的品尝寿司的方案（对给定的正整数 <span
-class="math inline">\(p\)</span>
-取模）。注意一个人可以不吃任何寿司。</p>
-<h2 id="输入格式">输入格式</h2>
-<p>输入文件的第 <span class="math inline">\(1\)</span> 行包含 <span
-class="math inline">\(2\)</span> 个正整数 <span class="math inline">\(n,
-p\)</span> 中间用单个空格隔开，表示共有 <span
-class="math inline">\(n\)</span> 种寿司，最终和谐的方案数要对 <span
-class="math inline">\(p\)</span> 取模。</p>
-<h2 id="输出格式">输出格式</h2>
-<p>输出一行包含 <span class="math inline">\(1\)</span>
-个整数，表示所求的方案模 <span class="math inline">\(p\)</span>
-的结果。</p>
-<h2 id="提示">提示</h2>
-<p>【数据范围】</p>
-<p><img src="1506.png" /></p>
-<p><strong>勘误：$0 &lt; p ^9 $</strong></p>
+<h1 id="NOI2015-寿司晚宴"><a href="#NOI2015-寿司晚宴" class="headerlink" title="[NOI2015] 寿司晚宴"></a>[NOI2015] 寿司晚宴</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>为了庆祝 NOI 的成功开幕，主办方为大家准备了一场寿司晚宴。小 G 和小 W 作为参加 NOI 的选手，也被邀请参加了寿司晚宴。</p>
+<p>在晚宴上，主办方为大家提供了 $n−1$ 种不同的寿司，编号 $1,2,3,\ldots,n-1$，其中第 $i$ 种寿司的美味度为 $i+1$。（即寿司的美味度为从 $2$ 到 $n$）</p>
+<p>现在小 G 和小 W 希望每人选一些寿司种类来品尝，他们规定一种品尝方案为不和谐的当且仅当：小 G 品尝的寿司种类中存在一种美味度为 $x$ 的寿司，小 W 品尝的寿司中存在一种美味度为 $y$ 的寿司，而 $x$ 与 $y$ 不互质。</p>
+<p>现在小 G 和小 W 希望统计一共有多少种和谐的品尝寿司的方案（对给定的正整数 $p$ 取模）。注意一个人可以不吃任何寿司。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入文件的第 $1$ 行包含 $2$ 个正整数 $n, p$ 中间用单个空格隔开，表示共有 $n$ 种寿司，最终和谐的方案数要对 $p$ 取模。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行包含 $1$ 个整数，表示所求的方案模 $p$ 的结果。</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>【数据范围】</p>
+<p> <img src="1506.png" alt=""> </p>
+<p><strong>勘误：$0 &lt; p \le 10^9 $</strong></p>
 </blockquote>
-<h3 id="思路">思路</h3>
-<p>首先，要让两个人选的数字全部互质，那么有一个显然的充要条件：甲选的数字的质因数集合和乙选的数字的质因数集合没有交集</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先，要让两个人选的数字全部互质，那么有一个显然的充要条件：甲选的数字的质因数集合和乙选的数字的质因数集合没有交集</p>
 <p>假如有状压基础的话，不难发现这道题在n较小的情况下可以开个状压搞搞：</p>
-<p>把质数从小到大排列成一行，0和1分别表示是否存在该质因数，能够表示一种状态<span
-class="math inline">\(S\)</span></p>
+<p>把质数从小到大排列成一行，0和1分别表示是否存在该质因数，能够表示一种状态$S$</p>
 <p>那么可以找到状态转移方程：·</p>
 <p>当遍历到第 i 个数的时候</p>
 <p>读于甲乙所有可能集合的状态存在</p>
-<p><span class="math inline">\(if \space S_乙\&amp;S_i==0 \space\space
-dp[i][S_甲|S_i][S_乙]+=dp[i][S_甲][S_乙]\)</span></p>
-<p><span class="math inline">\(if \space S_甲\&amp;S_i==0 \space\space
-dp[i][S_甲][S_乙|S_i]+=dp[i][S_甲][S_乙]\)</span></p>
+<p> $if \space S_乙\&amp;S_i==0 \space\space dp[i][S_甲|S_i][S_乙]+=dp[i][S_甲][S_乙]$</p>
+<p> $if \space S_甲\&amp;S_i==0 \space\space dp[i][S_甲][S_乙|S_i]+=dp[i][S_甲][S_乙]$</p>
 <p>稍微优化成二维dp：</p>
 <p>因为按位或运算是越算越大的，所以我们可以把甲乙集合的状态从大往小遍历，这样每次更新只是覆盖遍历过的</p>
-<p><span class="math inline">\(if \space S_乙\&amp;S_i==0 \space\space
-dp[S_甲|S_i][S_乙]+=dp[S_甲][S_乙]\)</span></p>
-<p><span class="math inline">\(if \space S_甲\&amp;S_i==0 \space\space
-dp[S_甲][S_乙|S_i]+=dp[S_甲][S_乙]\)</span></p>
-<p>状压dp的思路到这里就到头了，唯一的问题是当n=500时，有95个可能可能的质因数，对应着<span
-class="math inline">\(2^{95}\)</span>个状态，这显然不现实。</p>
-<p>可以证明：对于每一个<span
-class="math inline">\(n\)</span>，大于等于<span
-class="math inline">\(\sqrt{n}\)</span>的质因数个数最多只有一个</p>
+<p> $if \space S_乙\&amp;S_i==0 \space\space dp[S_甲|S_i][S_乙]+=dp[S_甲][S_乙]$</p>
+<p> $if \space S_甲\&amp;S_i==0 \space\space dp[S_甲][S_乙|S_i]+=dp[S_甲][S_乙]$</p>
+<p>状压dp的思路到这里就到头了，唯一的问题是当n=500时，有95个可能可能的质因数，对应着$2^{95}$个状态，这显然不现实。</p>
+<p>可以证明：对于每一个$n$，大于等于$\sqrt{n}$的质因数个数最多只有一个</p>
 <p>也就是说一个小于500的数，最多只可能有1个比22大的质因子</p>
-<p>所以说我们可以按照大于大于等于<span
-class="math inline">\(\sqrt{n}\)</span>的质因数，将所有寿司分组，每组放在一起dp，这样只需要表示<span
-class="math inline">\(\sqrt{n}\)</span>以内的质因数和组内唯一一个大于等于<span
-class="math inline">\(\sqrt{n}\)</span>的质因数的状态就好了，遍历到下一组时，需要将大质数那一位的状态更新，（即将上一组存在大质因数的状态加到无大质因数的状态中，然后清零，毕竟后面的组都涉及不到那个大质因数了）。</p>
-<p>总时间复杂度为<span class="math inline">\(O(n2^{16})\)</span></p>
+<p>所以说我们可以按照大于大于等于$\sqrt{n}$的质因数，将所有寿司分组，每组放在一起dp，这样只需要表示$\sqrt{n}$以内的质因数和组内唯一一个大于等于$\sqrt{n}$的质因数的状态就好了，遍历到下一组时，需要将大质数那一位的状态更新，（即将上一组存在大质因数的状态加到无大质因数的状态中，然后清零，毕竟后面的组都涉及不到那个大质因数了）。</p>
+<p>总时间复杂度为$O(n2^{16})$</p>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 洛谷 P2150 [NOI2015] 寿司晚宴</span></span><br><span class="line"><span class="comment">// 状压dp+根号优化</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> pb emplace_back</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">513</span>, INF = <span class="number">1e9</span>, mod = <span class="number">998244353</span>;</span><br><span class="line">ll n, p, sieve[N], state[N], dp[N][N], ans;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; prime_small, prime_big;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; p;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 筛 获得n以内的质数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">2</span>; j * i &lt;= n; j++)</span><br><span class="line">            sieve[i * j] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">if</span> (sieve[i] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i * i &lt; n)</span><br><span class="line">                prime_small.<span class="built_in">pb</span>(i);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                prime_big.<span class="built_in">pb</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 筛筛 获得2-n的每个数的状态</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; prime_small.<span class="built_in">size</span>(); i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j * prime_small[i] &lt;= n; j++)</span><br><span class="line">            state[j * prime_small[i]] |= (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; prime_big.<span class="built_in">size</span>(); i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j * prime_big[i] &lt;= n; j++)</span><br><span class="line">            state[j * prime_big[i]] |= (<span class="number">1</span> &lt;&lt; prime_small.<span class="built_in">size</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 状压dp</span></span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;<span class="comment">//甲乙开始都为空集的状态数为1</span></span><br><span class="line">    <span class="comment">// 分组dp有大质数的</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; prime_big.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j * prime_big[i] &lt;= n; j++)<span class="comment">//根据每个大质因数分别dp</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> s = state[j * prime_big[i]];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> x = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>() + <span class="number">1</span>)) - <span class="number">1</span>; x &gt;= <span class="number">0</span>; x--)</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> y = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>() + <span class="number">1</span>)) - <span class="number">1</span>; y &gt;= <span class="number">0</span>; y--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((s &amp; y) == <span class="number">0</span>)</span><br><span class="line">                        dp[x | s][y] = (dp[x | s][y] + dp[x][y]) % p;</span><br><span class="line">                    <span class="keyword">if</span> ((s &amp; x) == <span class="number">0</span>)</span><br><span class="line">                        dp[x][y | s] = (dp[x][y | s] + dp[x][y]) % p;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将大质数那一位的状态更新</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>())) - <span class="number">1</span>; x &gt;= <span class="number">0</span>; x--)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> y = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>())) - <span class="number">1</span>; y &gt;= <span class="number">0</span>; y--)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[x][y] = (dp[x][y] + (dp[x + (<span class="number">1</span> &lt;&lt; prime_small.<span class="built_in">size</span>())][y] + dp[x][y + (<span class="number">1</span> &lt;&lt; prime_small.<span class="built_in">size</span>())]) % p) % p;</span><br><span class="line">                dp[x + (<span class="number">1</span> &lt;&lt; prime_small.<span class="built_in">size</span>())][y] = dp[x][y + (<span class="number">1</span> &lt;&lt; prime_small.<span class="built_in">size</span>())] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// dp没大质数的</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">if</span> ((state[i] &gt;&gt; prime_small.<span class="built_in">size</span>()) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> s = state[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> x = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>())) - <span class="number">1</span>; x &gt;= <span class="number">0</span>; x--)</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> y = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>())) - <span class="number">1</span>; y &gt;= <span class="number">0</span>; y--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((s &amp; y) == <span class="number">0</span>)</span><br><span class="line">                        dp[x | s][y] = (dp[x | s][y] + dp[x][y]) % p;</span><br><span class="line">                    <span class="keyword">if</span> ((s &amp; x) == <span class="number">0</span>)</span><br><span class="line">                        dp[x][y | s] = (dp[x][y | s] + dp[x][y]) % p;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算答案</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>())) - <span class="number">1</span>; x &gt;= <span class="number">0</span>; x--)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> y = (<span class="number">1</span> &lt;&lt; (prime_small.<span class="built_in">size</span>())) - <span class="number">1</span>; y &gt;= <span class="number">0</span>; y--)</span><br><span class="line">            ans = (ans + dp[x][y]) % p;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -351,7 +308,7 @@ class="math inline">\(\sqrt{n}\)</span>的质因数的状态就好了，遍历�
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://nicccce.github.io/ACM/Root-Divide/" title="Root-Divide" target="_blank">https://nicccce.github.io/ACM/Root-Divide/</a>
+          <a href="https://nicccce.github.io/ACM/Root-Divide/" title="根号分治" target="_blank">https://nicccce.github.io/ACM/Root-Divide/</a>
         </li>
         
         <li>
@@ -463,11 +420,11 @@ class="math inline">\(\sqrt{n}\)</span>的质因数的状态就好了，遍历�
 
 <nav id="article-nav">
   
-    <a href="/Home/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/TechNotes/Vue3-Note/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hello World
+          Vue3笔记
         
       </div>
     </a>
@@ -501,7 +458,7 @@ class="math inline">\(\sqrt{n}\)</span>的质因数的状态就好了，遍历�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%85%E8%B0%88%E6%A0%B9%E5%8F%B7%E5%88%86%E6%B2%BB"><span class="toc-number">1.</span> <span class="toc-text">浅谈根号分治</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BF%E5%8F%B8%E6%99%9A%E5%AE%B4"><span class="toc-number">1.1.</span> <span class="toc-text">寿司晚宴</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#noi2015-%E5%AF%BF%E5%8F%B8%E6%99%9A%E5%AE%B4"><span class="toc-number">2.</span> <span class="toc-text">[NOI2015] 寿司晚宴</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-number">2.4.</span> <span class="toc-text">提示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.4.1.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B9%E5%8F%B7%E5%88%86%E6%B2%BB"><span class="toc-number">1.</span> <span class="toc-text">根号分治</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BF%E5%8F%B8%E6%99%9A%E5%AE%B4"><span class="toc-number">1.1.</span> <span class="toc-text">寿司晚宴</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NOI2015-%E5%AF%BF%E5%8F%B8%E6%99%9A%E5%AE%B4"><span class="toc-number">2.</span> <span class="toc-text">[NOI2015] 寿司晚宴</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-number">2.4.</span> <span class="toc-text">提示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.4.1.</span> <span class="toc-text">思路</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

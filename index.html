@@ -297,6 +297,191 @@
 
 
   
+    <article id="post-Vue3-Note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/TechNotes/Vue3-Note/" target="_blank">Vue3笔记</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/TechNotes/Vue3-Note/" class="archive-article-date">
+        <time datetime="2024-11-20T10:25:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h1><p>注：内容改编自黑马程序员教程</p>
+<h2 id="Vue3-1"><a href="#Vue3-1" class="headerlink" title="Vue3"></a>Vue3</h2><h3 id="create-vue"><a href="#create-vue" class="headerlink" title="create-vue"></a>create-vue</h3><p>create-vue是Vue官方新的脚手架工具，底层切换到了 vite （下一代前端工具链），为开发提供极速响应</p>
+<blockquote>
+<p>前置条件 - 已安装16.0或更高版本的Node.js</p>
+</blockquote>
+<p>执行如下命令，这一指令将会安装并执行 create-vue</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init vue@latest</span><br></pre></td></tr></table></figure>
+<h3 id="项目和关键文件"><a href="#项目和关键文件" class="headerlink" title="项目和关键文件"></a>项目和关键文件</h3><p><img src="image-20241120182843853.png" alt="image-20241120182843853"></p>
+<h2 id="组合式API"><a href="#组合式API" class="headerlink" title="组合式API"></a>组合式API</h2><h3 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h3><p>写法（在beforeCreate钩子之前执行）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    setup()&#123;</span><br><span class="line">      </span><br><span class="line">    &#125;,</span><br><span class="line">    beforeCreate()&#123;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>在setup函数中写的数据和方法需要在末尾以对象的方式return，才能给模版使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    setup()&#123;</span><br><span class="line">      const message = &#x27;this is message&#x27;</span><br><span class="line">      const logMessage = ()=&gt;&#123;</span><br><span class="line">        console.log(message)</span><br><span class="line">      &#125;</span><br><span class="line">      // 必须return才可以</span><br><span class="line">      return &#123;</span><br><span class="line">        message,</span><br><span class="line">        logMessage</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="lt-script-setup-gt-语法糖"><a href="#lt-script-setup-gt-语法糖" class="headerlink" title="&lt;script setup&gt;语法糖"></a><code>&lt;script setup&gt;</code>语法糖</h4><blockquote>
+<p>script标签添加 setup标记，不需要再写导出语句，默认会添加导出语句</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  const message = &#x27;this is message&#x27;</span><br><span class="line">  const logMessage = ()=&gt;&#123;</span><br><span class="line">    console.log(message)</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="reactive和ref函数"><a href="#reactive和ref函数" class="headerlink" title="reactive和ref函数"></a>reactive和ref函数</h3><h4 id="reactive"><a href="#reactive" class="headerlink" title="reactive"></a>reactive</h4><p>接受对象类型数据的参数传入并返回一个响应式的对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"> // 导入</span><br><span class="line"> import &#123; reactive &#125; from &#x27;vue&#x27;</span><br><span class="line"> // 执行函数 传入参数 变量接收</span><br><span class="line"> const state = reactive(&#123;</span><br><span class="line">   msg:&#x27;this is msg&#x27;</span><br><span class="line"> &#125;)</span><br><span class="line"> const setSate = ()=&gt;&#123;</span><br><span class="line">   // 修改数据更新视图</span><br><span class="line">   state.msg = &#x27;this is new msg&#x27;</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &#123;&#123; state.msg &#125;&#125;</span><br><span class="line">  &lt;button @click=&quot;setState&quot;&gt;change msg&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><blockquote>
+<p>接收简单类型或者对象类型的数据传入并返回一个响应式的对象</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"> // 导入</span><br><span class="line"> import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"> // 执行函数 传入参数 变量接收</span><br><span class="line"> const count = ref(0)</span><br><span class="line"> const setCount = ()=&gt;&#123;</span><br><span class="line">   // 修改数据更新视图必须加上.value</span><br><span class="line">   count.value++</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;setCount&quot;&gt;&#123;&#123;count&#125;&#125;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><ol>
+<li>都是用来生成响应式数据</li>
+<li>不同点<ol>
+<li>reactive不能处理简单类型的数据</li>
+<li>ref参数类型支持更好，但是必须通过.value做访问修改</li>
+<li>ref函数内部的实现依赖于reactive函数</li>
+</ol>
+</li>
+<li>在实际工作中的推荐<ol>
+<li>推荐使用ref函数，减少记忆负担</li>
+</ol>
+</li>
+</ol>
+<h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p>计算属性基本思想和Vue2保持一致，组合式API下的计算属性只是修改了API写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">// 导入</span><br><span class="line">import &#123;ref, computed &#125; from &#x27;vue&#x27;</span><br><span class="line">// 原始数据</span><br><span class="line">const count = ref(0)</span><br><span class="line">// 计算属性</span><br><span class="line">const doubleCount = computed(()=&gt;count.value * 2)</span><br><span class="line"></span><br><span class="line">// 原始数据</span><br><span class="line">const list = ref([1,2,3,4,5,6,7,8])</span><br><span class="line">// 计算属性list</span><br><span class="line">const filterList = computed(item=&gt;item &gt; 2)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><p>侦听一个或者多个数据的变化，数据变化时执行回调函数，俩个额外参数 immediate控制立刻执行，deep开启深度侦听</p>
+<h4 id="侦听单个数据"><a href="#侦听单个数据" class="headerlink" title="侦听单个数据"></a>侦听单个数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const count = ref(0)</span><br><span class="line">  // 2. 调用watch 侦听变化</span><br><span class="line">  watch(count, (newValue, oldValue)=&gt;&#123;</span><br><span class="line">    console.log(`count发生了变化，老值为$&#123;oldValue&#125;,新值为$&#123;newValue&#125;`)</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="侦听多个数据"><a href="#侦听多个数据" class="headerlink" title="侦听多个数据"></a>侦听多个数据</h4><p>侦听多个数据，第一个参数可以改写成数组的写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const count = ref(0)</span><br><span class="line">  const name = ref(&#x27;cp&#x27;)</span><br><span class="line">  // 2. 调用watch 侦听变化</span><br><span class="line">  watch([count, name], ([newCount, newName],[oldCount,oldName])=&gt;&#123;</span><br><span class="line">    console.log(`count或者name变化了，[newCount, newName],[oldCount,oldName])</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="immediate"><a href="#immediate" class="headerlink" title="immediate"></a>immediate</h4><p>在侦听器创建时立即出发回调，响应式数据变化之后继续执行回调</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const count = ref(0)</span><br><span class="line">  // 2. 调用watch 侦听变化</span><br><span class="line">  watch(count, (newValue, oldValue)=&gt;&#123;</span><br><span class="line">    console.log(`count发生了变化，老值为$&#123;oldValue&#125;,新值为$&#123;newValue&#125;`)</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    immediate: true</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="deep"><a href="#deep" class="headerlink" title="deep"></a>deep</h4><p>通过watch监听的ref对象默认是浅层侦听的，直接修改嵌套的对象属性不会触发回调执行，需要开启deep</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const state = ref(&#123; count: 0 &#125;)</span><br><span class="line">  // 2. 监听对象state</span><br><span class="line">  watch(state, ()=&gt;&#123;</span><br><span class="line">    console.log(&#x27;数据变化了&#x27;)</span><br><span class="line">  &#125;)</span><br><span class="line">  const changeStateByCount = ()=&gt;&#123;</span><br><span class="line">    // 直接修改不会引发回调执行</span><br><span class="line">    state.value.count++</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const state = ref(&#123; count: 0 &#125;)</span><br><span class="line">  // 2. 监听对象state 并开启deep</span><br><span class="line">  watch(state, ()=&gt;&#123;</span><br><span class="line">    console.log(&#x27;数据变化了&#x27;)</span><br><span class="line">  &#125;,&#123;deep:true&#125;)</span><br><span class="line">  const changeStateByCount = ()=&gt;&#123;</span><br><span class="line">    // 此时修改可以触发回调</span><br><span class="line">    state.value.count++</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h3><h4 id="选项式对比组合式"><a href="#选项式对比组合式" class="headerlink" title="选项式对比组合式"></a>选项式对比组合式</h4><p><img src="image-20241120183726102.png" alt="image-20241120183726102"></p>
+<h4 id="生命周期函数基本使用"><a href="#生命周期函数基本使用" class="headerlink" title="生命周期函数基本使用"></a>生命周期函数基本使用</h4><blockquote>
+<ol>
+<li>导入生命周期函数</li>
+<li>执行生命周期函数，传入回调</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;scirpt setup&gt;</span><br><span class="line">import &#123; onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">onMounted(()=&gt;&#123;</span><br><span class="line">  // 自定义逻辑</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="执行多次"><a href="#执行多次" class="headerlink" title="执行多次"></a>执行多次</h4><p>生命周期函数执行多次的时候，会按照顺序依次执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;scirpt setup&gt;</span><br><span class="line">import &#123; onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">onMounted(()=&gt;&#123;</span><br><span class="line">  // 自定义逻辑</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">onMounted(()=&gt;&#123;</span><br><span class="line">  // 自定义逻辑</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="父子通信"><a href="#父子通信" class="headerlink" title="父子通信"></a>父子通信</h3><h4 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h4><p>基本思想</p>
+<ol>
+<li>父组件中给子组件绑定属性</li>
+<li>子组件内部通过props选项接收数据</li>
+</ol>
+<p><strong>父组件</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Soncom</span> <span class="keyword">from</span> <span class="string">&#x27;./son-com.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">const</span> cont = <span class="title function_">ref</span>(<span class="number">100</span>)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>父组件App<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">SonCom</span> <span class="attr">:cont</span>=<span class="string">&quot;cont&quot;</span> <span class="attr">message</span>=<span class="string">&quot;father message&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>子组件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="keyword">const</span> props = <span class="title function_">defineProps</span>(&#123;</span><br><span class="line">  <span class="attr">message</span>: <span class="title class_">String</span>,</span><br><span class="line">  <span class="attr">cont</span>: <span class="title class_">Number</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(props)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>父组件App<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      父组件传入数值 - &#123;&#123; message &#125;&#125; - &#123;&#123; cont &#125;&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>实际上子组件的那块是编译器宏函数，最后被宏为了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">	<span class="attr">message</span>: <span class="title class_">String</span>,</span><br><span class="line">    <span class="attr">cont</span>: <span class="title class_">Number</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="子传父"><a href="#子传父" class="headerlink" title="子传父"></a>子传父</h4><p>基本思想</p>
+<ol>
+<li>父组件中给子组件标签通过@绑定事件</li>
+<li>子组件内部通过 emit 方法触发事件</li>
+</ol>
+<p><strong>父组件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="comment">// 引入子组件</span></span><br><span class="line"><span class="keyword">import</span> sonComVue <span class="keyword">from</span> <span class="string">&#x27;./son-com.vue&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getMessage</span> =(<span class="params">msg</span>) =&gt; &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(msg)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="comment">&lt;!-- 1.绑定自定义事件 --&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">sonComVue</span> @<span class="attr">get-message</span>=<span class="string">&quot;getMessage&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>子组件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"><span class="comment">//2.通过 defineEmits编译器宏生成emit方法</span></span><br><span class="line"><span class="keyword">const</span> emit = <span class="title function_">defineEmits</span>([<span class="string">&#x27;get-message&#x27;</span>])</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sendMsg</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 3.触发自定义事件 并传递参数</span></span><br><span class="line">  <span class="title function_">emit</span>(<span class="string">&#x27;get-message&#x27;</span>, <span class="string">&#x27;this is son msg&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;sendMsg&quot;</span>&gt;</span>sendMsg<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JavaScrip</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/TechNotes//" class="article-tag-list-link color5">TechNotes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/TechNotes/Vue3-Note/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Root-Divide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -305,7 +490,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/ACM/Root-Divide/" target="_blank">Root-Divide</a>
+	  <a class="article-title" href="/ACM/Root-Divide/" target="_blank">根号分治</a>
   
     </h1>
   
@@ -326,16 +511,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="浅谈根号分治">浅谈根号分治</h1>
-<blockquote>
+    <h1 id="根号分治"><a href="#根号分治" class="headerlink" title="根号分治"></a>根号分治</h1><blockquote>
 <p>根号分治，是暴力美学的集大成体现。</p>
 <p>与其说是一种算法，我们不如称它为一个常用的trick。</p>
 </blockquote>
 <p>根号分治，其实就是将一个数据较大、复杂度较大的解法转化为根号级别的解法</p>
-<h2 id="寿司晚宴">寿司晚宴</h2>
-<h3 id="题目">题目</h3>
-<p>题目链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2150">P2150
-[NOI2015] 寿司晚宴</a></p>
+<h2 id="寿司晚宴"><a href="#寿司晚宴" class="headerlink" title="寿司晚宴"></a>寿司晚宴</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>题目链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2150">P2150 [NOI2015] 寿司晚宴</a></p>
     
     <a class="article-more-a" href="/ACM/Root-Divide/#more">more >></a>
     
@@ -442,36 +623,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="浅谈敏感信息处理">浅谈敏感信息处理</h1>
-<blockquote>
-<p><strong>涉密信息不上网，上网信息不涉密</strong></p>
+    <h1 id="浅谈敏感信息处理"><a href="#浅谈敏感信息处理" class="headerlink" title="浅谈敏感信息处理"></a>浅谈敏感信息处理</h1><blockquote>
+<p> “<strong>信息安全的核心不是完美的技术，而是有效的管理与人性化的考虑。</strong>” —— <strong>Bruce Schneier</strong></p>
 </blockquote>
-<blockquote>
-<p>“<strong>信息安全的核心不是完美的技术，而是有效的管理与人性化的考虑。</strong>”
-—— <strong>Bruce Schneier</strong></p>
-</blockquote>
-<h2 id="什么是敏感信息">什么是敏感信息？</h2>
-<p>在项目开源的过程中，不可避免地会碰到敏感信息，例如：</p>
+<h2 id="什么是敏感信息？"><a href="#什么是敏感信息？" class="headerlink" title="什么是敏感信息？"></a>什么是敏感信息？</h2><p>在项目开源的过程中，不可避免地会碰到敏感信息，例如：</p>
 <ul>
-<li><strong>云数据库的账号密码信息</strong>
-MySQL等数据库的用户名和密码。</li>
-<li><strong>微信登录涉及的
-<code>AppID</code>、<code>AppSecret</code></strong>
-这些信息用于第三方服务的 OAuth
-认证，如果泄露可能导致账号被恶意使用。</li>
-<li><strong>API 密钥</strong> 用于调用第三方服务的
-<code>API_KEY</code>，如支付网关、地图服务、邮件发送等。</li>
-<li><strong>SSH 私钥</strong> 服务器管理中的 SSH
-私钥文件，如果泄露会让攻击者获得服务器的完全访问权限。</li>
-<li><strong>JWT Secret</strong> 这些密钥用于生成和验证
-JWT，保护用户身份信息。</li>
-<li><strong>支付信息</strong>
-例如：银行卡号、支付网关的密钥（如支付宝的签名密钥）。</li>
-<li><strong>个人身份信息（PII）</strong>
-例如：身份证号码、护照信息、电话号码、住址、电子邮件地址等。</li>
-<li><strong>密码文件</strong>
-例如：包含用户登录密码或哈希密码的配置文件、<code>.env</code>
-文件中明文存储的敏感数据。</li>
+<li><strong>云数据库的账号密码信息</strong><br>MySQL等数据库的用户名和密码。</li>
+<li><strong>微信登录涉及的 <code>AppID</code>、<code>AppSecret</code></strong><br>这些信息用于第三方服务的 OAuth 认证，如果泄露可能导致账号被恶意使用。</li>
+<li><strong>API 密钥</strong><br>用于调用第三方服务的 <code>API_KEY</code>，如支付网关、地图服务、邮件发送等。</li>
+<li><strong>SSH 私钥</strong><br>服务器管理中的 SSH 私钥文件，如果泄露会让攻击者获得服务器的完全访问权限。</li>
+<li><strong>JWT Secret</strong><br>这些密钥用于生成和验证 JWT，保护用户身份信息。</li>
+<li><strong>支付信息</strong><br>例如：银行卡号、支付网关的密钥（如支付宝的签名密钥）。</li>
+<li><strong>个人身份信息（PII）</strong><br>例如：身份证号码、护照信息、电话号码、住址、电子邮件地址等。</li>
+<li><strong>密码文件</strong><br>例如：包含用户登录密码或哈希密码的配置文件、<code>.env</code> 文件中明文存储的敏感数据。</li>
 </ul>
 <p>这些敏感信息如果在开源项目中暴露，可能会引发数据泄露、财务损失、甚至法律责任等严重后果，因此在项目中需要妥善处理和保护。</p>
     
