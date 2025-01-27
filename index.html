@@ -327,6 +327,103 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="unity-笔记">Unity 笔记</h1>
+<h2 id="编辑器">编辑器</h2>
+<table>
+<thead>
+<tr class="header">
+<th><strong>热键</strong></th>
+<th><strong>功能描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>鼠标左键</strong></td>
+<td>选择或操作组件。</td>
+</tr>
+<tr class="even">
+<td><strong>鼠标滚轮</strong></td>
+<td>启用手型工具，可拖拽界面（平移视图）。</td>
+</tr>
+<tr class="odd">
+<td><strong>鼠标右键</strong></td>
+<td>旋转视角，配合 <code>WASD</code> 键可自由移动相机（飞行模式）。</td>
+</tr>
+<tr class="even">
+<td><strong>Q</strong></td>
+<td><strong>手形工具</strong>：平移整个 Scene 视图。</td>
+</tr>
+<tr class="odd">
+<td><strong>W</strong></td>
+<td><strong>移动工具</strong>：移动选中的游戏对象。</td>
+</tr>
+<tr class="even">
+<td><strong>E</strong></td>
+<td><strong>旋转工具</strong>：按任意角度旋转选中的游戏对象。</td>
+</tr>
+<tr class="odd">
+<td><strong>R</strong></td>
+<td><strong>缩放工具</strong>：调整选中对象的大小（整体或单轴缩放）。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>补充说明</strong></p>
+<ol type="1">
+<li><strong>组合操作</strong>
+<ul>
+<li><strong>Shift + 鼠标右键</strong>：加速相机移动。</li>
+<li><strong>Alt + 鼠标左键</strong>：围绕选中物体旋转视角。</li>
+</ul></li>
+<li><strong>视图操作技巧</strong>
+<ul>
+<li><strong>双击 Hierarchy 中的对象</strong>：快速聚焦到选中对象。</li>
+<li><strong>F 键</strong>：在 Scene 视图中聚焦到当前选中对象。</li>
+<li><strong>Ctrl/Cmd + Z</strong>：撤销操作（适用于场景修改）。</li>
+</ul></li>
+<li><strong>工具切换小技巧</strong>
+<ul>
+<li>可以在工具栏的 <strong>Transform Gizmo</strong> 中快速切换
+<strong>移动、旋转、缩放</strong>
+工具（对应快捷键：<code>W</code>、<code>E</code>、<code>R</code>）。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="prefab">Prefab</h2>
+<h4 id="创建预制体"><strong>1. 创建预制体</strong></h4>
+<ul>
+<li>将 Hierarchy 中的物体拖动到 Project
+面板，即可创建一个预制体（Prefab）。</li>
+</ul>
+<hr />
+<h4 id="修改预制体"><strong>2. 修改预制体</strong></h4>
+<ul>
+<li>对 Project 中的预制体进行修改，会同步更新 Scene
+中所有引用该预制体的实例。</li>
+</ul>
+<hr />
+<h4 id="修改-scene-中的预制体实例"><strong>3. 修改 Scene
+中的预制体实例</strong></h4>
+<ul>
+<li>如果直接修改 Scene
+中引用预制体的实例，其对应的原始预制体不会改变。</li>
+<li>如果需要将修改同步到预制体，可以通过以下两种方式：
+<ul>
+<li>在 Inspector 面板中点击相应组件的 <strong>“Add Component”</strong>
+并选择 <strong>“Add to Prefab”</strong>。</li>
+<li>点击 <strong>Override</strong> 菜单中的 <strong>Apply</strong>
+按钮，同步更改到预制体。</li>
+</ul></li>
+</ul>
+<hr />
+<h4 id="创建预制体的变体prefab-variant"><strong>4.
+创建预制体的变体（Prefab Variant）</strong></h4>
+<ul>
+<li>如果需要创建预制体的副本，可以将修改后的预制体再次拖动到 Project
+面板。</li>
+<li>在弹出的选项中选择 <strong>“Create a Variant from the existing
+Prefab”</strong>。</li>
+<li>这样创建的变体（Variant）会依赖于原始预制体，其组件属性与原始预制体保持关联，修改原始预制体时变体会同步更新。</li>
+</ul>
     
     <a class="article-more-a" href="/TechNotes/Unity-Note/#more">more >></a>
     

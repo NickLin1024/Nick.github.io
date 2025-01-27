@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Unity 笔记">
+  <meta name="description" content="Unity 笔记 编辑器    热键 功能描述     鼠标左键 选择或操作组件。   鼠标滚轮 启用手型工具，可拖拽界面（平移视图）。   鼠标右键 旋转视角，配合 WASD 键可自由移动相机（飞行模式）。   Q 手形工具：平移整个 Scene 视图。   W 移动工具：移动选中的游戏对象。   E 旋转工具：按任意角度旋转选中的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity笔记">
 <meta property="og:url" content="https://nicccce.github.io/TechNotes/Unity-Note/">
 <meta property="og:site_name" content="NICCCCE">
-<meta property="og:description" content="Unity 笔记">
+<meta property="og:description" content="Unity 笔记 编辑器    热键 功能描述     鼠标左键 选择或操作组件。   鼠标滚轮 启用手型工具，可拖拽界面（平移视图）。   鼠标右键 旋转视角，配合 WASD 键可自由移动相机（飞行模式）。   Q 手形工具：平移整个 Scene 视图。   W 移动工具：移动选中的游戏对象。   E 旋转工具：按任意角度旋转选中的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-26T14:43:17.000Z">
-<meta property="article:modified_time" content="2025-01-27T05:43:59.614Z">
+<meta property="article:modified_time" content="2025-01-27T13:02:57.768Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="UnityL">
@@ -234,7 +234,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3字</span>
+      <span class="post-count">2.3k字</span>
     </span>
   </span>
 
@@ -243,7 +243,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -255,7 +255,285 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="unity-笔记">Unity 笔记</h1>
+<h2 id="编辑器">编辑器</h2>
+<table>
+<thead>
+<tr class="header">
+<th><strong>热键</strong></th>
+<th><strong>功能描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>鼠标左键</strong></td>
+<td>选择或操作组件。</td>
+</tr>
+<tr class="even">
+<td><strong>鼠标滚轮</strong></td>
+<td>启用手型工具，可拖拽界面（平移视图）。</td>
+</tr>
+<tr class="odd">
+<td><strong>鼠标右键</strong></td>
+<td>旋转视角，配合 <code>WASD</code> 键可自由移动相机（飞行模式）。</td>
+</tr>
+<tr class="even">
+<td><strong>Q</strong></td>
+<td><strong>手形工具</strong>：平移整个 Scene 视图。</td>
+</tr>
+<tr class="odd">
+<td><strong>W</strong></td>
+<td><strong>移动工具</strong>：移动选中的游戏对象。</td>
+</tr>
+<tr class="even">
+<td><strong>E</strong></td>
+<td><strong>旋转工具</strong>：按任意角度旋转选中的游戏对象。</td>
+</tr>
+<tr class="odd">
+<td><strong>R</strong></td>
+<td><strong>缩放工具</strong>：调整选中对象的大小（整体或单轴缩放）。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>补充说明</strong></p>
+<ol type="1">
+<li><strong>组合操作</strong>
+<ul>
+<li><strong>Shift + 鼠标右键</strong>：加速相机移动。</li>
+<li><strong>Alt + 鼠标左键</strong>：围绕选中物体旋转视角。</li>
+</ul></li>
+<li><strong>视图操作技巧</strong>
+<ul>
+<li><strong>双击 Hierarchy 中的对象</strong>：快速聚焦到选中对象。</li>
+<li><strong>F 键</strong>：在 Scene 视图中聚焦到当前选中对象。</li>
+<li><strong>Ctrl/Cmd + Z</strong>：撤销操作（适用于场景修改）。</li>
+</ul></li>
+<li><strong>工具切换小技巧</strong>
+<ul>
+<li>可以在工具栏的 <strong>Transform Gizmo</strong> 中快速切换
+<strong>移动、旋转、缩放</strong>
+工具（对应快捷键：<code>W</code>、<code>E</code>、<code>R</code>）。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="prefab">Prefab</h2>
+<h4 id="创建预制体"><strong>1. 创建预制体</strong></h4>
+<ul>
+<li>将 Hierarchy 中的物体拖动到 Project
+面板，即可创建一个预制体（Prefab）。</li>
+</ul>
+<hr />
+<h4 id="修改预制体"><strong>2. 修改预制体</strong></h4>
+<ul>
+<li>对 Project 中的预制体进行修改，会同步更新 Scene
+中所有引用该预制体的实例。</li>
+</ul>
+<hr />
+<h4 id="修改-scene-中的预制体实例"><strong>3. 修改 Scene
+中的预制体实例</strong></h4>
+<ul>
+<li>如果直接修改 Scene
+中引用预制体的实例，其对应的原始预制体不会改变。</li>
+<li>如果需要将修改同步到预制体，可以通过以下两种方式：
+<ul>
+<li>在 Inspector 面板中点击相应组件的 <strong>“Add Component”</strong>
+并选择 <strong>“Add to Prefab”</strong>。</li>
+<li>点击 <strong>Override</strong> 菜单中的 <strong>Apply</strong>
+按钮，同步更改到预制体。</li>
+</ul></li>
+</ul>
+<hr />
+<h4 id="创建预制体的变体prefab-variant"><strong>4.
+创建预制体的变体（Prefab Variant）</strong></h4>
+<ul>
+<li>如果需要创建预制体的副本，可以将修改后的预制体再次拖动到 Project
+面板。</li>
+<li>在弹出的选项中选择 <strong>“Create a Variant from the existing
+Prefab”</strong>。</li>
+<li>这样创建的变体（Variant）会依赖于原始预制体，其组件属性与原始预制体保持关联，修改原始预制体时变体会同步更新。</li>
+</ul>
 <span id="more"></span>
+<hr />
+<h2 id="vector">Vector</h2>
+<h4 id="创建向量">1. <strong>创建向量</strong></h4>
+<p>使用 <code>Vector3</code>
+创建一个向量，可以表示位置、方向、缩放等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vector3 v = new Vector3(1, 1, 1);</span><br></pre></td></tr></table></figure>
+<hr />
+<h4 id="常用快捷向量">2. <strong>常用快捷向量</strong></h4>
+<p>Unity 提供了一些预定义的向量，便于快速使用。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Vector3 v;</span><br><span class="line">v = Vector3.zero;     <span class="comment">// (0, 0, 0) 零向量</span></span><br><span class="line">v = Vector3.one;      <span class="comment">// (1, 1, 1) 单位向量</span></span><br><span class="line">v = Vector3.forward;  <span class="comment">// (0, 0, 1) Z 轴正方向</span></span><br><span class="line">v = Vector3.back;     <span class="comment">// (0, 0, -1) Z 轴反方向</span></span><br><span class="line">v = Vector3.up;       <span class="comment">// (0, 1, 0) Y 轴正方向</span></span><br><span class="line">v = Vector3.down;     <span class="comment">// (0, -1, 0) Y 轴反方向</span></span><br><span class="line">v = Vector3.left;     <span class="comment">// (-1, 0, 0) X 轴反方向</span></span><br><span class="line">v = Vector3.right;    <span class="comment">// (1, 0, 0) X 轴正方向</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h4 id="修改向量">3. <strong>修改向量</strong></h4>
+<p>可以直接修改向量的各个分量。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v.x = <span class="number">0</span>;</span><br><span class="line">v.y = <span class="number">1</span>;</span><br><span class="line">v.z = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<hr />
+<h4 id="向量运算">4. <strong>向量运算</strong></h4>
+<p>Unity 提供了许多常用的向量计算方法：</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>操作</strong></th>
+<th><strong>代码</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>向量夹角（度）</strong></td>
+<td><code>Vector3.Angle(v, v2)</code></td>
+<td>返回两个向量之间的夹角（以度为单位）。</td>
+</tr>
+<tr class="even">
+<td><strong>向量距离</strong></td>
+<td><code>Vector3.Distance(v, v2)</code></td>
+<td>返回两点之间的距离（v 和 v2）。</td>
+</tr>
+<tr class="odd">
+<td><strong>点乘</strong></td>
+<td><code>Vector3.Dot(v, v2)</code></td>
+<td>计算两个向量的点积，结果为一个标量，反映向量的方向关系。</td>
+</tr>
+<tr class="even">
+<td><strong>叉乘</strong></td>
+<td><code>Vector3.Cross(v, v2)</code></td>
+<td>计算两个向量的叉积，结果为一个垂直于两个向量的向量。</td>
+</tr>
+<tr class="odd">
+<td><strong>线性插值</strong></td>
+<td><code>Vector3.Lerp(v, v2, t)</code></td>
+<td>在向量 v 和 v2 之间进行线性插值，t 取值范围为 [0, 1]。(v2-v)*t</td>
+</tr>
+<tr class="even">
+<td><strong>向量的模</strong></td>
+<td><code>v.magnitude</code></td>
+<td>计算向量的长度（模）。</td>
+</tr>
+<tr class="odd">
+<td><strong>向量规范化</strong></td>
+<td><code>v.normalized</code></td>
+<td>返回单位向量（方向相同，长度为 1）。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="示例代码">5. <strong>示例代码</strong></h4>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">VectorExample</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 v = <span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">        Vector3 v2 = <span class="keyword">new</span> Vector3(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">        Debug.Log(<span class="string">$&quot;夹角: <span class="subst">&#123;Vector3.Angle(v, v2)&#125;</span>&quot;</span>);       <span class="comment">// 计算夹角</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;距离: <span class="subst">&#123;Vector3.Distance(v, v2)&#125;</span>&quot;</span>);    <span class="comment">// 计算距离</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;点乘: <span class="subst">&#123;Vector3.Dot(v, v2)&#125;</span>&quot;</span>);        <span class="comment">// 计算点乘</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;叉乘: <span class="subst">&#123;Vector3.Cross(v, v2)&#125;</span>&quot;</span>);      <span class="comment">// 计算叉乘</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;差值: <span class="subst">&#123;Vector3.Lerp(v, v2, <span class="number">0.5f</span>)&#125;</span>&quot;</span>); <span class="comment">// 计算线性插值</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;向量的模: <span class="subst">&#123;v.magnitude&#125;</span>&quot;</span>);           <span class="comment">// 获取向量的长度</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;规范化: <span class="subst">&#123;v.normalized&#125;</span>&quot;</span>);            <span class="comment">// 获取单位向量</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="旋转">旋转</h2>
+<p>在 Unity 中，旋转通常通过 <strong>欧拉角</strong> 或
+<strong>四元数</strong>
+来实现。两者各有优缺点，适用于不同的场景。四元数能够避免欧拉角的
+<strong>万向节锁</strong> 问题，因此在处理复杂或连续旋转时更为常用。</p>
+<hr />
+<h4 id="欧拉角与四元数概述"><strong>1. 欧拉角与四元数概述</strong></h4>
+<ul>
+<li><p>欧拉角</p>
+<p>（Euler Angles）：</p>
+<ul>
+<li>由绕 X、Y、Z 轴的旋转角度表示，直观且易于理解。</li>
+<li>旋转的顺序会影响结果，容易出现
+<strong>万向节锁</strong>，即某些角度之间的旋转失效。</li>
+</ul></li>
+<li><p>四元数</p>
+<p>（Quaternion）：</p>
+<ul>
+<li>四元数是一种更为复杂的数学结构，避免了欧拉角的万向节锁问题。</li>
+<li>适用于高效、稳定的旋转计算，特别是在连续的旋转或插值时表现优异。</li>
+</ul></li>
+</ul>
+<hr />
+<h4 id="代码示例"><strong>2. 代码示例</strong></h4>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">RotateTest</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Start is called once before the first execution of Update after the MonoBehaviour is created</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 示例1：使用欧拉角与四元数进行旋转</span></span><br><span class="line">        Vector3 rotate = <span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">30</span>, <span class="number">0</span>); <span class="comment">// 定义一个欧拉角（绕 Y 轴旋转 30 度）</span></span><br><span class="line">        Quaternion quaternion = Quaternion.identity; <span class="comment">// 创建一个无旋转的四元数（单位四元数）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将欧拉角转换为四元数</span></span><br><span class="line">        quaternion = Quaternion.Euler(rotate); <span class="comment">// 通过欧拉角创建四元数</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;通过欧拉角创建的四元数：<span class="subst">&#123;quaternion&#125;</span>&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 四元数转换为欧拉角</span></span><br><span class="line">        rotate = quaternion.eulerAngles; <span class="comment">// 将四元数转换回欧拉角</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;四元数对应的欧拉角：<span class="subst">&#123;rotate&#125;</span>&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 示例2：让物体看向一个目标</span></span><br><span class="line">        <span class="comment">// 假设目标位置为原点（0, 0, 0），我们让物体的前方看向该点</span></span><br><span class="line">        quaternion = Quaternion.LookRotation(Vector3.zero); <span class="comment">// 让物体看向 (0, 0, 0)</span></span><br><span class="line">        Debug.Log(<span class="string">$&quot;看向目标的四元数：<span class="subst">&#123;quaternion&#125;</span>&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="debug">Debug</h2>
+<h4 id="日志">日志</h4>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Debug.Log(<span class="string">&quot;test&quot;</span>);              <span class="comment">// 输出一般信息</span></span><br><span class="line">Debug.LogWarning(<span class="string">&quot;test2&quot;</span>);      <span class="comment">// 输出警告信息，通常用于提示潜在问题</span></span><br><span class="line">Debug.LogError(<span class="string">&quot;test3&quot;</span>);        <span class="comment">// 输出错误信息，用于报告严重问题</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>Debug.Log()</code></strong>：输出常规日志信息，通常用于显示一些状态或调试信息。</li>
+<li><strong><code>Debug.LogWarning()</code></strong>：输出警告信息，适用于告警性的提示，通常不影响程序运行，但可能指示潜在的问题。</li>
+<li><strong><code>Debug.LogError()</code></strong>：输出错误信息，通常用于报告严重错误，可能会中断程序的正常流程。</li>
+</ul>
+<hr />
+<h4 id="调试图形"><strong>调试图形</strong></h4>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">csharp复制编辑Debug.DrawLine(Vector3.zero, Vector3.one);  <span class="comment">// 在 Scene 视图中绘制一条从 (0, 0, 0) 到 (1, 1, 1) 的线段</span></span><br><span class="line">Debug.DrawRay(Vector3.zero, Vector3.forward);  <span class="comment">// 从原点 (0, 0, 0) 绘制一条朝前的射线</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>Debug.DrawLine()</code></strong>：在 Scene
+视图中绘制一条线段。常用于可视化物体之间的连接关系、方向等。</li>
+<li><strong><code>Debug.DrawRay()</code></strong>：在 Scene
+视图中绘制一条射线。常用于调试物体的朝向、射线检测等。</li>
+</ul>
+<hr />
+<h2 id="monobehaviourscript">MonoBehaviourScript</h2>
+<h3 id="monobehaviour">MonoBehaviour</h3>
+<p><strong>MonoBehaviour</strong> 是 Unity 中所有脚本的基类。通过继承
+<code>MonoBehaviour</code>，脚本可以被挂载到游戏物体上，从而控制游戏物体的行为和属性。它提供了大量生命周期函数（如
+<code>Start</code>、<code>Update</code>），以及与 Unity
+游戏物体和组件交互的方法。</p>
+<hr />
+<h3 id="获取游戏物体"><strong>获取游戏物体</strong></h3>
+<h4 id="获取挂载的物体"><strong>获取挂载的物体</strong></h4>
+<ul>
+<li>当前脚本挂载的物体可以通过以下方式获取：</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GameObject go = <span class="keyword">this</span>.gameObject; <span class="comment">// &quot;this&quot; 可以省略</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在代码中也可以直接使用 <code>gameObject</code>，无需额外获取。</li>
+</ul>
+<p><strong>常见属性：</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Debug.Log(gameObject.name);   <span class="comment">// 获取物体名称</span></span><br><span class="line">Debug.Log(gameObject.tag);    <span class="comment">// 获取物体标签</span></span><br><span class="line">Debug.Log(gameObject.layer);  <span class="comment">// 获取物体所在层</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h4 id="获取场景中的其他物体"><strong>获取场景中的其他物体</strong></h4>
+<ol type="1">
+<li><p><strong>通过 Inspector 绑定物体</strong></p>
+<ul>
+<li>声明一个 <code>public</code> 的 <code>GameObject</code> 变量，并在
+Inspector 面板中手动拖入物体：</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> GameObject cube; <span class="comment">// 在 Inspector 中绑定</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>通过名字或标签查找物体</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GameObject test = GameObject.Find(<span class="string">&quot;Test&quot;</span>);          <span class="comment">// 按名称查找</span></span><br><span class="line">GameObject test2 = GameObject.FindWithTag(<span class="string">&quot;Test&quot;</span>);  <span class="comment">// 按标签查找</span></span><br></pre></td></tr></table></figure>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>如果物体不存在，会返回 <code>null</code>。</li>
+<li>如果场景中有多个物体匹配名字或标签，只会返回第一个找到的物体。</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="激活状态"><strong>激活状态</strong></h3>
+<p>检查物体是否被激活：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Debug.Log(cube.activeSelf);          <span class="comment">// 自身是否被激活</span></span><br><span class="line">Debug.Log(cube.activeInHierarchy);   <span class="comment">// 实际是否被激活（父物体未激活时，子物体即使自身激活，仍为非激活状态）</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="操作组件"><strong>操作组件</strong></h3>
+<h4 id="获取组件"><strong>获取组件</strong></h4>
+<ol type="1">
+<li><p>获取 <code>Transform</code> 组件（所有游戏物体默认都有
+<code>Transform</code>）：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Transform trans = <span class="keyword">this</span>.transform; <span class="comment">// 当前物体的 Transform</span></span><br></pre></td></tr></table></figure></li>
+<li><p>获取其他组件：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BoxCollider collider = GetComponent&lt;BoxCollider&gt;();       <span class="comment">// 获取当前物体的组件</span></span><br><span class="line">Collider childCollider = GetComponentInChildren&lt;Collider&gt;(); <span class="comment">// 获取子物体的指定组件</span></span><br><span class="line">Collider parentCollider = GetComponentInParent&lt;Collider&gt;();  <span class="comment">// 获取父物体的指定组件</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h4 id="添加组件"><strong>添加组件</strong></h4>
+<p>动态为物体添加组件：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gameObject.AddComponent&lt;AudioSource&gt;(); <span class="comment">// 添加 AudioSource 组件</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="实例化和销毁物体"><strong>实例化和销毁物体</strong></h3>
+<ol type="1">
+<li><p>声明一个 <code>public</code> 的 <code>GameObject</code>
+变量用于指定预制体：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> GameObject PreFab; <span class="comment">// 在 Inspector 中指定</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用代码实例化物体：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GameObject go = Instantiate(PreFab); <span class="comment">// 简单实例化一个物体</span></span><br><span class="line">Instantiate(PreFab, transform);      <span class="comment">// 作为当前物体的子物体实例化</span></span><br><span class="line">Instantiate(PreFab, Vector3.zero, Quaternion.identity); <span class="comment">// 放置到原点，初始旋转为 0</span></span><br></pre></td></tr></table></figure></li>
+<li><p>销毁物体：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Destroy(go); <span class="comment">// 销毁实例化的物体</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
 
     
 
@@ -416,7 +694,9 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#unity-%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Unity 笔记</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#unity-%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Unity 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prefab"><span class="toc-number">1.2.</span> <span class="toc-text">Prefab</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A2%84%E5%88%B6%E4%BD%93"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1. 创建预制体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%A2%84%E5%88%B6%E4%BD%93"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2. 修改预制体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-scene-%E4%B8%AD%E7%9A%84%E9%A2%84%E5%88%B6%E4%BD%93%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">3. 修改 Scene
+中的预制体实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A2%84%E5%88%B6%E4%BD%93%E7%9A%84%E5%8F%98%E4%BD%93prefab-variant"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">4.
+创建预制体的变体（Prefab Variant）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">1.3.</span> <span class="toc-text">Vector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">1. 创建向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">2. 常用快捷向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3. 修改向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">4. 向量运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">5. 示例代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.4.</span> <span class="toc-text">旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92%E4%B8%8E%E5%9B%9B%E5%85%83%E6%95%B0%E6%A6%82%E8%BF%B0"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">1. 欧拉角与四元数概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">2. 代码示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">1.5.</span> <span class="toc-text">Debug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E5%9B%BE%E5%BD%A2"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">调试图形</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#monobehaviourscript"><span class="toc-number">1.6.</span> <span class="toc-text">MonoBehaviourScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#monobehaviour"><span class="toc-number">1.6.1.</span> <span class="toc-text">MonoBehaviour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%B8%B8%E6%88%8F%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.</span> <span class="toc-text">获取游戏物体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%82%E8%BD%BD%E7%9A%84%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">获取挂载的物体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%85%B6%E4%BB%96%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">获取场景中的其他物体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E7%8A%B6%E6%80%81"><span class="toc-number">1.6.3.</span> <span class="toc-text">激活状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.</span> <span class="toc-text">操作组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">获取组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">添加组件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%92%8C%E9%94%80%E6%AF%81%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.5.</span> <span class="toc-text">实例化和销毁物体</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
