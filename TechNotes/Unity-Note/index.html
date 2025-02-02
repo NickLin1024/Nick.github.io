@@ -18,10 +18,10 @@
 <meta property="og:description" content="Unity 笔记 编辑器    热键 功能描述     鼠标左键 选择或操作组件。   鼠标滚轮 启用手型工具，可拖拽界面（平移视图）。   鼠标右键 旋转视角，配合 WASD 键可自由移动相机（飞行模式）。   Q 手形工具：平移整个 Scene 视图。   W 移动工具：移动选中的游戏对象。   E 旋转工具：按任意角度旋转选中的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-26T14:43:17.000Z">
-<meta property="article:modified_time" content="2025-01-27T13:02:57.768Z">
+<meta property="article:modified_time" content="2025-02-02T16:08:51.917Z">
 <meta property="article:author" content="NICK">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="UnityL">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="NICCCCE" type="application/atom+xml">
@@ -234,7 +234,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.3k字</span>
+      <span class="post-count">2.5k字</span>
     </span>
   </span>
 
@@ -243,7 +243,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">9分</span>
+      <span class="post-count">10分</span>
     </span>
   </span>
 </div>
@@ -534,6 +534,18 @@ Inspector 面板中手动拖入物体：</li>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Destroy(go); <span class="comment">// 销毁实例化的物体</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <hr />
+<h2 id="time">Time</h2>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TimeTest</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">float</span> timer = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 游戏运行至当前的总时间（以秒为单位）</span></span><br><span class="line">        Debug.Log(Time.time);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 时间缩放值（默认 1，可用于控制游戏整体速度）</span></span><br><span class="line">        Debug.Log(Time.timeScale);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 物理引擎更新的固定时间间隔（默认 0.02s，可用于 FixedUpdate）</span></span><br><span class="line">        Debug.Log(Time.fixedDeltaTime);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 记录上一帧到当前帧的时间间隔（单位：秒）</span></span><br><span class="line">        <span class="comment">// 在 60 FPS 下，deltaTime 约为 1/60 ≈ 0.0167s</span></span><br><span class="line">        Debug.Log(Time.deltaTime);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计时器逻辑：累加经过的时间</span></span><br><span class="line">        timer += Time.deltaTime;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (timer &gt; <span class="number">3</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 当时间累计超过 3 秒后重置</span></span><br><span class="line">            timer = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="说明">说明：</h3>
+<ul>
+<li><code>Time.time</code>：游戏启动到当前的总时间（单位：秒）。</li>
+<li><code>Time.timeScale</code>：时间缩放系数，默认为
+<code>1</code>，可用于加速或暂停游戏（<code>0</code> 代表暂停）。</li>
+<li><code>Time.fixedDeltaTime</code>：固定更新间隔，影响
+<code>FixedUpdate</code> 的调用频率（默认 <code>0.02s</code>，即
+50Hz）。</li>
+<li><code>Time.deltaTime</code>：当前帧与上一帧的时间间隔，常用于帧率无关的计时或动画计算。</li>
+</ul>
 
     
 
@@ -574,7 +586,7 @@ Inspector 面板中手动拖入物体：</li>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">UnityL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Unity</a>
         		</li>
       		
 		</ul>
@@ -656,11 +668,11 @@ Inspector 面板中手动拖入物体：</li>
 
 <nav id="article-nav">
   
-    <a href="/Home/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CourseNotes/Deep-Learning-Note/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hello World
+          Deep Learning Note
         
       </div>
     </a>
@@ -696,7 +708,7 @@ Inspector 面板中手动拖入物体：</li>
                     <div class="toc-article">
                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#unity-%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Unity 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prefab"><span class="toc-number">1.2.</span> <span class="toc-text">Prefab</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A2%84%E5%88%B6%E4%BD%93"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1. 创建预制体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%A2%84%E5%88%B6%E4%BD%93"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2. 修改预制体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-scene-%E4%B8%AD%E7%9A%84%E9%A2%84%E5%88%B6%E4%BD%93%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">3. 修改 Scene
 中的预制体实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A2%84%E5%88%B6%E4%BD%93%E7%9A%84%E5%8F%98%E4%BD%93prefab-variant"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">4.
-创建预制体的变体（Prefab Variant）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">1.3.</span> <span class="toc-text">Vector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">1. 创建向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">2. 常用快捷向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3. 修改向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">4. 向量运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">5. 示例代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.4.</span> <span class="toc-text">旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92%E4%B8%8E%E5%9B%9B%E5%85%83%E6%95%B0%E6%A6%82%E8%BF%B0"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">1. 欧拉角与四元数概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">2. 代码示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">1.5.</span> <span class="toc-text">Debug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E5%9B%BE%E5%BD%A2"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">调试图形</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#monobehaviourscript"><span class="toc-number">1.6.</span> <span class="toc-text">MonoBehaviourScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#monobehaviour"><span class="toc-number">1.6.1.</span> <span class="toc-text">MonoBehaviour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%B8%B8%E6%88%8F%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.</span> <span class="toc-text">获取游戏物体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%82%E8%BD%BD%E7%9A%84%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">获取挂载的物体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%85%B6%E4%BB%96%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">获取场景中的其他物体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E7%8A%B6%E6%80%81"><span class="toc-number">1.6.3.</span> <span class="toc-text">激活状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.</span> <span class="toc-text">操作组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">获取组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">添加组件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%92%8C%E9%94%80%E6%AF%81%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.5.</span> <span class="toc-text">实例化和销毁物体</span></a></li></ol></li></ol></li></ol>
+创建预制体的变体（Prefab Variant）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">1.3.</span> <span class="toc-text">Vector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">1. 创建向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">2. 常用快捷向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%90%91%E9%87%8F"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3. 修改向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">4. 向量运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">5. 示例代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC"><span class="toc-number">1.4.</span> <span class="toc-text">旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92%E4%B8%8E%E5%9B%9B%E5%85%83%E6%95%B0%E6%A6%82%E8%BF%B0"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">1. 欧拉角与四元数概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">2. 代码示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">1.5.</span> <span class="toc-text">Debug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E5%9B%BE%E5%BD%A2"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">调试图形</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#monobehaviourscript"><span class="toc-number">1.6.</span> <span class="toc-text">MonoBehaviourScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#monobehaviour"><span class="toc-number">1.6.1.</span> <span class="toc-text">MonoBehaviour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%B8%B8%E6%88%8F%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.</span> <span class="toc-text">获取游戏物体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%82%E8%BD%BD%E7%9A%84%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">获取挂载的物体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%85%B6%E4%BB%96%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">获取场景中的其他物体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E7%8A%B6%E6%80%81"><span class="toc-number">1.6.3.</span> <span class="toc-text">激活状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.</span> <span class="toc-text">操作组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">获取组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BB%84%E4%BB%B6"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">添加组件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%92%8C%E9%94%80%E6%AF%81%E7%89%A9%E4%BD%93"><span class="toc-number">1.6.5.</span> <span class="toc-text">实例化和销毁物体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#time"><span class="toc-number">1.7.</span> <span class="toc-text">Time</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.7.1.</span> <span class="toc-text">说明：</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -917,6 +929,14 @@ Inspector 面板中手动拖入物体：</li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UnityL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Unity</a>
               </li>
             
             <div class="clearfix"></div>
